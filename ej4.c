@@ -5,9 +5,6 @@
 //  El número que contiene sólo los bits que son 1 en ambos números
 //  El número que contiene los bits que son 1 en alguno de los números
 //
-//  Created by Gonzalo Gabriel Fernández on 8/30/17.
-//  Copyright © 2017 Gonzalo Gabriel Fernández. All rights reserved.
-//
 
 #include "ej4.h"
 #include <stdio.h>
