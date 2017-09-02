@@ -6,9 +6,6 @@
 //  b. El último día del mes y cuantos días faltan para el mismo.
 //  Considere la existencia de los años bisiestos.
 //
-//  Created by Gonzalo Gabriel Fernández on 9/2/17.
-//  Copyright © 2017 Gonzalo Gabriel Fernández. All rights reserved.
-//
 
 #include "ej6.h"
 #include <stdio.h>
