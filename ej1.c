@@ -4,9 +4,6 @@
 //  Escribir un programa que pida 3 números por pantalla e identifique cual es el valor central, si es posible.
 //  Ej. a es central si y solo si b > a > c.
 //
-//  Created by Gonzalo Gabriel Fernández on 8/30/17.
-//  Copyright © 2017 Gonzalo Gabriel Fernández. All rights reserved.
-//
 
 #include "ej1.h"
 #include <stdio.h>
