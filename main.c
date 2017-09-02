@@ -2,9 +2,6 @@
 //  main.c
 //  Informatica-2017
 //
-//  Created by Gonzalo Gabriel Fernández on 8/30/17.
-//  Copyright © 2017 Gonzalo Gabriel Fernández. All rights reserved.
-//
 
 #include <stdio.h>
 #include "ej1.h"
