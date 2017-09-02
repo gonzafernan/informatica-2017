@@ -5,9 +5,6 @@
 //De esta forma los primeros cinco minutos cuestan $ 1.00 c/u, los siguientes tres, $ 0.80 c/u, los siguientes dos minutos, $ 0.70 c/u, y a partir del décimo minuto, 0.50 c/u (los valores no incluyen IVA).
 //Realice un programa para determinar el costo total de una llamada expresada en segundos.
 //
-//  Created by Gonzalo Gabriel Fernández on 8/30/17.
-//  Copyright © 2017 Gonzalo Gabriel Fernández. All rights reserved.
-//
 
 #include "ej3.h"
 #include <stdio.h>
