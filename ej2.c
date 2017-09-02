@@ -3,9 +3,6 @@
 //  Informatica-2017
 //  Elaborar un algoritmo en el cual se ingrese una letra y se detecte si se trata de una vocal o cualquier otro tipo de caracter.
 //
-//  Created by Gonzalo Gabriel Fernández on 8/30/17.
-//  Copyright © 2017 Gonzalo Gabriel Fernández. All rights reserved.
-//
 
 #include "ej2.h"
 #include <stdio.h>
