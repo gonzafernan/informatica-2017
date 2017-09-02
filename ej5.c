@@ -4,9 +4,6 @@
 //  Escribir un programa que resuelva los valores resultantes de funciones multivariables.
 //  Considere las variables como valores enteros que se le piden al usuario.
 //
-//  Created by Gonzalo Gabriel Fernández on 9/2/17.
-//  Copyright © 2017 Gonzalo Gabriel Fernández. All rights reserved.
-//
 
 #include "ej5.h"
 #include <stdio.h>
