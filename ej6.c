@@ -7,7 +7,7 @@
 //  Considere la existencia de los años bisiestos.
 //
 
-#include "ej6.h"
+include "ej6.h"
 #include <stdio.h>
 
 //Definición tipo de dato booleano
@@ -79,6 +79,7 @@ int ej6(){
             montha=month+1;
             if (month==12){
                 yeara=year+1;
+                month=1;
             }
         } else if (day==1){
             if (month==8||month==1){
@@ -94,7 +95,7 @@ int ej6(){
             }
             if (month==1){
                 yearb=year-1;
-                monthb=month-1;
+                monthb=12;
             }
         }
         dayl=31;
