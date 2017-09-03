@@ -79,7 +79,7 @@ int ej6(){
             montha=month+1;
             if (month==12){
                 yeara=year+1;
-                month=1;
+                montha=1;
             }
         } else if (day==1){
             if (month==8||month==1){
