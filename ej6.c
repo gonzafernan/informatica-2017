@@ -33,8 +33,8 @@ int ej6(){
     m30=(month==4||month==6||month==9||month==11);
     
     //Fechas normales, se actualizarán en caso de ser fechas límites
-    daya=day++;
-    dayb=day--;
+    daya=day+1;
+    dayb=day-1;
     montha=month;
     monthb=month;
     yeara=year;
@@ -45,11 +45,11 @@ int ej6(){
     if (m30){
         if (day==30){
             daya=1;
-            montha=month++;
+            montha=month+1;
             
         } else if (day==1){
             dayb=31;
-            monthb=month--;
+            monthb=month-1;
         }
         dayl=30;
         numdays=dayl-day;
@@ -60,13 +60,15 @@ int ej6(){
         } else if (day==29){
             daya=1;
             montha=3;
-            dayl=29;
         } else if (day==28){
-            if (-bisiesto){
+            if (bisiesto==FALSE){
                 daya=1;
                 dayb=27;
-                montha=month;
-                monthb=month;
+                montha=3;
+            }
+            if (bisiesto) {
+                dayl=29;
+            } else {
                 dayl=28;
             }
         }
@@ -75,7 +77,7 @@ int ej6(){
         if (day==31){
             daya=1;
             if (month==12){
-                yeara=year++;
+                yeara=year+1;
             }
         } else if (day==1){
             if (month==8||month==1){
@@ -90,7 +92,7 @@ int ej6(){
                 dayb=30;
             }
             if (month==1){
-                yearb=year--;
+                yearb=year-1;
             }
         }
         dayl=31;
