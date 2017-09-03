@@ -11,9 +11,9 @@
 #include "ej5.h"
 #include "ej6.h"
 #include "workspace.h"
-int main(int argc, const char * argv[]) {
+int main() {
    int ejercicio;
-   printf("ecribe el numero del ejercicio a ejecutarse\n");
+   printf("Ingrese el número del ejercicio a ejecutar:\n");
     scanf("%d",&ejercicio);
     switch (ejercicio) {
             case(1):
@@ -36,7 +36,7 @@ int main(int argc, const char * argv[]) {
             break;
             //incluir desde aca todos los ejercicios siguientes
         default:
-            printf("no existe ese ejercicio o no esta hecho")
+            printf("No existe tal ejercicio o no esta hecho")
     }
         
     return 0;
