@@ -76,6 +76,7 @@ int ej6(){
     } else {    //Condicional meses con trenta y un días
         if (day==31){
             daya=1;
+            montha=month+1;
             if (month==12){
                 yeara=year+1;
             }
@@ -93,6 +94,7 @@ int ej6(){
             }
             if (month==1){
                 yearb=year-1;
+                monthb=month-1;
             }
         }
         dayl=31;
