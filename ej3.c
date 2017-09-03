@@ -7,7 +7,6 @@
 //
 
 #include "ej3.h"
-// Por qué el include de arriba tiene comillas? No se supone que era o con <> o con **? 
 #include <stdio.h>
 #include <math.h>
 
