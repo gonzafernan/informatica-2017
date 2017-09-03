@@ -36,7 +36,7 @@ int main() {
             break;
             //incluir desde aca todos los ejercicios siguientes
         default:
-            printf("No existe tal ejercicio o no esta hecho")
+            printf("No existe tal ejercicio o no esta hecho");
     }
         
     return 0;
