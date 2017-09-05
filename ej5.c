@@ -10,7 +10,7 @@
 #include <math.h>
 
 int ej5(){
-    float a,b,c,d,e,f;
+    int a,b,c,d,e,f;
     float x,y;
     printf("Ingrese valores de a, b, c, d, e y f en ese orden: \n");
     scanf("%f%f%f%f%f%f",&a,&b,&c,&d,&e,&f);
