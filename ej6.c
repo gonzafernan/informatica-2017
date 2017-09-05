@@ -7,7 +7,6 @@
 //  Considere la existencia de los años bisiestos.
 //
 
-include "ej6.h"
 #include <stdio.h>
 
 //Definición tipo de dato booleano
