@@ -5,7 +5,6 @@
 //  Ej. a es central si y solo si b > a > c.
 //
 
-#include "ej1.h"
 #include <stdio.h>
 
 int ej1(){
