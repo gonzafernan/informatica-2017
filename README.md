@@ -4,4 +4,6 @@ Trabajos prácticos de informática, año 2017. Ingeniería en mecatrónica. Uni
 Agrupar todos los headers en un solo archivo
 En el ejercicio 6 pueden ingresarse fechas no válidas
 
+Dónde está Santiago Maldonado?
+
 PEQL
