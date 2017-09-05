@@ -6,7 +6,6 @@
 //Realice un programa para determinar el costo total de una llamada expresada en segundos.
 //
 
-#include "ej3.h"
 #include <stdio.h>
 #include <math.h>
 
