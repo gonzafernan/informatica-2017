@@ -28,6 +28,9 @@ int main() {
             case(6):
                ej6();
             break;
+            case(7):
+               ej7();
+            break;
             //incluir desde aca todos los ejercicios siguientes
         default:
             printf("No existe tal ejercicio o no esta hecho\n");
