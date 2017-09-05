@@ -5,7 +5,6 @@
 //  Considere las variables como valores enteros que se le piden al usuario.
 //
 
-#include "ej5.h"
 #include <stdio.h>
 #include <math.h>
 
