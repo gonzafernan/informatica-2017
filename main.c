@@ -4,13 +4,7 @@
 //
 
 #include <stdio.h>
-#include "ej1.h"
-#include "ej2.h"
-#include "ej3.h"
-#include "ej4.h"
-#include "ej5.h"
-#include "ej6.h"
-#include "workspace.h"
+#include "ejercicios.h"
 int main() {
    int ejercicio;
    printf("Ingrese el número del ejercicio a ejecutar:\n");
@@ -38,7 +32,6 @@ int main() {
         default:
             printf("No existe tal ejercicio o no esta hecho");
     }
-   printf("Dónde está Santiago Maldonado?");
-        
+   
     return 0;
 }
