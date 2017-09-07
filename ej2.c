@@ -4,7 +4,6 @@
 //  Elaborar un algoritmo en el cual se ingrese una letra y se detecte si se trata de una vocal o cualquier otro tipo de caracter.
 //
 
-#include "ej2.h"
 #include <stdio.h>
 
 int ej2(){

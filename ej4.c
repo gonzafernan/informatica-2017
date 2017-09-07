@@ -6,7 +6,6 @@
 //  El número que contiene los bits que son 1 en alguno de los números
 //
 
-#include "ej4.h"
 #include <stdio.h>
 
 int ej4(){
