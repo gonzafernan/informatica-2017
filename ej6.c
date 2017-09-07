@@ -65,11 +65,11 @@ int ej6(){
                 dayb=27;
                 montha=3;
             }
-            if (bisiesto) {
-                dayl=29;
-            } else {
-                dayl=28;
-            }
+        }
+        if (bisiesto) {
+            dayl=29;
+        } else {
+            dayl=28;
         }
         numdays=dayl-day;
     } else {    //Condicional meses con trenta y un días
