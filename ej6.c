@@ -81,6 +81,7 @@ int ej6(){
                 montha=1;
             }
         } else if (day==1){
+          monthb=month-1;
             if (month==8||month==1){
                 dayb=31;
             } else if (month==3){
