@@ -34,6 +34,9 @@ int main() {
             case(8):
                ej8();
             break;
+            case(11):
+               ej11();
+            break;
             //incluir desde aca todos los ejercicios siguientes
         default:
             printf("No existe tal ejercicio o no esta hecho\n");
