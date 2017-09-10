@@ -37,6 +37,8 @@ int main() {
             case(9):
                ej9();
             break;
+            case(10):
+               ej10();
             case(11):
                ej11();
             break;
@@ -44,6 +46,5 @@ int main() {
         default:
             printf("No existe tal ejercicio o no esta hecho\n");
     }
-   printf("¿Dónde está Santiago Maldonado?\n");
    return 0;
 }
