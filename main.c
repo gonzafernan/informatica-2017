@@ -34,6 +34,9 @@ int main() {
             case(8):
                ej8();
             break;
+            case(9):
+               ej9();
+            break;
             case(11):
                ej11();
             break;
