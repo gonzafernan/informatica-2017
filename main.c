@@ -43,6 +43,7 @@ int main() {
             //incluir desde aca todos los ejercicios siguientes
         default:
             printf("No existe tal ejercicio o no esta hecho\n");
-    }  
-    return 0;
+    }
+   printf("¿Dónde está Santiago Maldonado?\n");
+   return 0;
 }
