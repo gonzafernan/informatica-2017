@@ -14,6 +14,6 @@ float i,j,s=0;
       s=s+((i+j)/(i-j));
     }
   }
-  printf("El resultado es: %lf\nHubo %d itereichons\n", s,k);
+  printf("El resultado es: %lf\nHubo %d iteraciones\n", s,k);
   return 0;
 }
