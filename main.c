@@ -39,8 +39,12 @@ int main() {
             break;
             case(10):
                ej10();
+            break;
             case(11):
                ej11();
+            break;
+            case(17):
+               ej17();
             break;
             //incluir desde aca todos los ejercicios siguientes
         default:
