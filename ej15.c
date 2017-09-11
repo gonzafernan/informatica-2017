@@ -16,7 +16,7 @@ typedef int boolean;
 #define TRUE 1
 #define FALSE 0
 
-int main(){
+int ej15(){
    /*Suponiendo que se toman las mediciones diarias cada 6 horas (después lo podemos cambiar) y que
    el usuario del programa sólo tiene que ingresar los valores de la nueva medición.
    Los valores anteriores ya van a estar guardados en la matriz A(5x23) en las primeras 20 columnas,
