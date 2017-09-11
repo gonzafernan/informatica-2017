@@ -16,7 +16,7 @@ typedef int boolean;
 #define TRUE 1
 #define FALSE 0
 
-int ej15(){
+int main(){
    /*Suponiendo que se toman las mediciones diarias cada 6 horas (después lo podemos cambiar) y que
    el usuario del programa sólo tiene que ingresar los valores de la nueva medición.
    Los valores anteriores ya van a estar guardados en la matriz A(5x23) en las primeras 20 columnas,
@@ -90,13 +90,20 @@ int ej15(){
          } printf("\n");
       }
 /*Continuar?? y Reemplazo de variables*/
-      char continuar;
-      printf("Desea ingresar los datos del nuevo día?? Y / any other key\n");
-      scanf("%c",&continuar);
+      char resp;
+      printf("Desea salir del sistema?? Y / any other key\n");
+      scanf(" %c",&resp);
+      printf(" %c",resp);
       //Bloque condicional switch
-      switch (continuar) {
+      switch (resp) {
          case 'Y':
          case 'y':
+            band=FALSE;
+            break;
+         default:
+         /*if (resp=='y' || resp=='Y'){
+            band=0;
+         } else{*/
             for (r=1; r<=5; r++){
                for (s=2; s<=23; s++){
                   if (s==22){
@@ -108,11 +115,8 @@ int ej15(){
                      A[r-1][s-2]=A[r-1][s-1]; //Traslado de las variables viejas a la izquierda.
                   }
                }
-            } band=TRUE;
-            break;
-         default:
-            band=FALSE;
-            break;
+            } break;
          }
    }
+return 0;   
 }
