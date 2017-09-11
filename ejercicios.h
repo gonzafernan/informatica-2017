@@ -17,6 +17,7 @@ int ej7();
 int ej8();
 int ej9();
 int ej11();
+int ej17();
 
 #define MAP_BOOLEAN(X) X==TRUE?"TRUE":"FALSE"
 
