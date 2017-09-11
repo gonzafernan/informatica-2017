@@ -93,7 +93,6 @@ int ej15(){
       char resp;
       printf("Desea salir del sistema?? Y / any other key\n");
       scanf(" %c",&resp);
-      printf(" %c",resp);
       //Bloque condicional switch
       switch (resp) {
          case 'Y':
