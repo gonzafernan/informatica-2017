@@ -14,7 +14,7 @@ int ej12(){
    int tam, i;
    printf("Ingrese en orden los coeficientes a, b y c\n");
    scanf("%f%f%f",&a,&b,&c);
-   printf("Ingrese en orden Valor Inicial, Valor Final e Incremento\n");
+   printf("Ingrese en orden valor inicial, valor final e incremento\n");
    scanf("%f%f%f",&x1,&x2,&delta);
    //tam: tamaño del vector función y vector variable.
    //Redondea hacia arriba el cociente y luego agrega 1 para el valor x=x2.
