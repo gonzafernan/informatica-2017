@@ -9,13 +9,13 @@
 
 int ej14(){
 int m,n,p,i,j,k,cerosf,cerosc;
-printf("ingrese numero de filas de la primer matriz y de columnas de la primer matriz   (con el formato mxn):\n");
+printf("Ingrese numero de filas de la primer matriz y de columnas de la primer matriz (con el formato mxn):\n");
 scanf(" %dx%d",&m,&n);
-printf("ingrese el numero de columnas de la segunda matriz: \n");
+printf("Ingrese el numero de columnas de la segunda matriz: \n");
 scanf(" %d",&p);
 float A[m][n],B[n][p],C[m][p];
 //cargar las matrices de arriba hacia abajo e izquierda a derecha
-printf("la carga de los valores de las matrices se realizara de arriba hacia abajo y luego izquierda a derecha\n");
+printf("La carga de los valores de las matrices se realizara de arriba hacia abajo y luego izquierda a derecha\n");
 for (i=1;i<=n;i++){ //columnas
   for (j=1;j<=m;j++){ //filas
     printf("Primer matriz, ingrese el numero correspondiente a la columna %d y  fila %d: ",i,j);
