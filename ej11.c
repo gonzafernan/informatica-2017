@@ -10,7 +10,7 @@ int ej11(){
   int num, i,j, comp=1,and;
   int binario[16]; //Vector donde se guardara el numero binario de 16 bits (int)
   int cp[]={1,2,4,8,16,32,64,128,256,512,1024,2048,4096,8192,16384,32768};
-  printf("escriba el numero entero que desea conocer en binario: \n");
+  printf("Escriba el numero entero que desea conocer en binario: \n");
   scanf("%d",&num);
 //Dentro del for se compara el numero con cada uno de los digitos binarios
 // empezando desde el 00001 y corriendo el 1 a la izquierda y cuando encuentra
@@ -26,7 +26,7 @@ int ej11(){
   comp=comp<<1;
   }
 //Display del vector binario ordenado como el numero binario al que corresponde
-  printf("el numero %d en binario es: \n",num);
+  printf("El numero %d en binario es: \n",num);
   for (j=1;j<=16;j++){
     printf("%d",binario[15-(j-1)]);
   }
