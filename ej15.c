@@ -28,7 +28,7 @@ int ej15(){
    colocan en la columna 21 y así sucesivamente.
    Al final de cada día coloca una pregunta para seguir utilizando el programa o cortarlo.
    */
-
+printf("Por favor maximize el tamaño de la consola para poder visalizar correctamente la matriz\n");
 /*Inicialización:
   Generación de una matriz inicial de 4x20 con random limitado entre 10 y 60 ( rand() %51 +10) y una
   fila 5 con el promedio de las filas superiores. Asignación de ceros a la columna 21 de valor esperado*/
