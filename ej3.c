@@ -1,9 +1,10 @@
 //
 //  ej3.c
 //  Informatica-2017
-//La compañía de celulares “Chismefon” posee un mecanismo de cobro de llamadas por el cual mientras más se habla, menos se paga.
-//De esta forma los primeros cinco minutos cuestan $ 1.00 c/u, los siguientes tres, $ 0.80 c/u, los siguientes dos minutos, $ 0.70 c/u, y a partir del décimo minuto, 0.50 c/u (los valores no incluyen IVA).
-//Realice un programa para determinar el costo total de una llamada expresada en segundos.
+//  La compañía de celulares “Chismefon” posee un mecanismo de cobro de llamadas por el cual mientras más se habla, menos se paga.
+//  De esta forma los primeros cinco minutos cuestan $ 1.00 c/u, los siguientes tres, $ 0.80 c/u, los siguientes dos minutos, $ 0.70 c/u, y a partir del décimo minuto, 0.50 c/u (los valores no incluyen IVA).
+//  Realice un programa para determinar el costo total de una llamada expresada en segundos.
+//
 //
 
 #include <stdio.h>
