@@ -2,8 +2,9 @@
 //
 //  ej14.c
 //  Informatica-2017
-// Escriba un programa que calcule el producto de 2 matrices A x B = C, con Amn, Bnp.
+//  Escriba un programa que calcule el producto de 2 matrices A x B = C, con Amn, Bnp.
 //
+
 #include <stdio.h>
 
 int ej14(){
