@@ -50,8 +50,17 @@ int main() {
                case(11):
                   ej11();
                break;
+               case(12):
+                  ej12();
+               break;
+               case(13):
+                  ej13();
+               break;               
                case(14):
                   ej14();
+               break;
+               case(15):
+                  ej15();
                break;
                case(16):
                   ej16();
