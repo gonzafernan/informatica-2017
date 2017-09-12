@@ -9,7 +9,7 @@
 int ej2(){
     char letra;
     printf("Ingrese caracter: \n");
-    scanf("%c",&letra);
+    scanf(" %c",&letra);
     //Bloque condicional switch
     switch (letra) {
         case 'a':
