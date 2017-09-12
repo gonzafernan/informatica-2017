@@ -70,56 +70,56 @@ int ej16(){
          v3.y[1]=v3.y[1]+v3.x[j-1];
          v4.y[1]=v4.y[1]+v4.x[j-1];
          vp1.x[22]=vp1.x[22]+vp1.x[j-1];
-      }  v1.y[1]=v1.y[1]/4;
-         v2.y[1]=v2.y[1]/4;
-         v3.y[1]=v3.y[1]/4;
-         v4.y[1]=v4.y[1]/4;
-         vp1.x[22]=vp1.x[22]/4;
+      }  v1.y[1]=v1.y[1]/21;
+         v2.y[1]=v2.y[1]/21;
+         v3.y[1]=v3.y[1]/21;
+         v4.y[1]=v4.y[1]/21;
+         vp1.x[22]=vp1.x[22]/21;
 
 /*Matriz en pantalla*/
       for (c=1; c<=23; c++){
          if (c==21){
-               printf("Actual   ");
+               printf("Actual ");
             } else if (c==22){
-               printf("Espera   ");
+               printf("Espera ");
             } else if (c==23){
-               printf("Predic   ");
+               printf("Predic ");
             } else if (c<10){
-               printf("Dia%d    ",c);
-            } else if (c>=10 && c<21){
                printf("Dia%d   ",c);
+            } else if (c>=10 && c<21){
+               printf("Dia%d  ",c);
             }
       } printf("\n");
       for (c1=1; c1<=23; c1++){
          if (c1==23 || c1==22){
-            printf(" %f",v1.y[c1-22]);
+            printf(" %.2f ",v1.y[c1-22]);
          } else {
-            printf(" %d     ",v1.x[c1-1]);
+            printf(" %d    ",v1.x[c1-1]);
          }
       } printf("\n");
       for (c2=1; c2<=23; c2++){
          if (c2==23 || c2==22){
-            printf(" %f",v2.y[c2-22]);
+            printf(" %.2f ",v2.y[c2-22]);
          } else {
-            printf(" %d     ",v2.x[c2-1]);
+            printf(" %d    ",v2.x[c2-1]);
          }
       } printf("\n");
       for (c3=1; c3<=23; c3++){
          if (c3==23 || c3==22){
-            printf(" %f",v3.y[c3-22]);
+            printf(" %.2f ",v3.y[c3-22]);
          } else {
-            printf(" %d     ",v3.x[c3-1]);
+            printf(" %d    ",v3.x[c3-1]);
          }
       } printf("\n");
       for (c4=1; c4<=23; c4++){
          if (c4==23 || c4==22){
-            printf(" %f",v4.y[c4-22]);
+            printf(" %.2f ",v4.y[c4-22]);
          } else {
-            printf(" %d     ",v4.x[c4-1]);
+            printf(" %d    ",v4.x[c4-1]);
          }
       } printf("\n");
       for (c5=1; c5<=23; c5++){
-         printf(" %f",vp1.x[c5-1]);
+         printf(" %.2f ",vp1.x[c5-1]);
       } printf("\n");
 
 /*Continuar?? y Reemplazo de variables*/
@@ -163,3 +163,4 @@ int ej16(){
    }
 return 0;
 }
+
