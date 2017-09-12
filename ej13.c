@@ -39,12 +39,18 @@ int ej13(){
     float prom=sum/largo;
     
     //Bucle para buscar menor componente
-    menor=vector[0];
-    for (i=1;i<=largo;i++){
-        if(vector[i]<=menor){
-            menor=vector[i];
-        }
-    }
+ if (vector[0]<vector[1]){
+ menor = vector[0];
+    }else{
+  menor=vector[1];
+}
+for (i=2;i<largo;i++){
+  if (menor<vector[i]){
+continue;
+  }else{
+    menor=vector[i];
+  }
+}
     
     //Resultados
     printf("El vector de números aleatorios es: \n");
