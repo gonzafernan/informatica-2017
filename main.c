@@ -53,9 +53,6 @@ int main() {
                case(14):
                   ej14();
                break;
-               case(15):
-                  ej15();
-               break;
                case(16):
                   ej16();
                break;
