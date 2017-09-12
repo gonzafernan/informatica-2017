@@ -25,6 +25,6 @@ int ej3(){
     } else if (tiempo>=(temp1+temp2+temp3)){
         costo = temp1+temp2*tarif1+temp3*tarif2+(tiempo-(temp1+temp2+temp3))*tarif3;
     }
-    printf("El costo de la llamada es: $%f \n",costo);
+    printf("El costo de la llamada es: $%.2f \n",costo);
     return 0;
 }
