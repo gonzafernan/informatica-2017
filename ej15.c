@@ -65,7 +65,7 @@ printf("Por favor maximize el tamaño de la consola para poder visalizar correct
       for (i=1; i<=5; i++){
          for (j=1; j<=21; j++){
             sum2[i-1]=sum2[i-1]+A[i-1][j-1];
-         } A[k-1][22]=sum2[i-1]/21;
+         } A[i-1][22]=sum2[i-1]/21;
       }
       
 /*Matriz en pantalla*/
