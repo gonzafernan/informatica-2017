@@ -1,3 +1,10 @@
+//
+//  ej9.c
+//  Informatica-2017
+//  Escribir un programa que calcule la ecuación.
+//
+//
+
 #include <stdio.h>
 
 int ej9(){
