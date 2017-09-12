@@ -14,6 +14,6 @@ int ej4(){
     scanf("%d%d",&num1,&num2);
     ina = num1&num2;
     inb = num1|num2;
-    printf("Inciso a: %d \n Inciso b: %d\n",ina,inb);
+    printf("Inciso a: %d \nInciso b: %d\n",ina,inb);
     return 0;
 }
