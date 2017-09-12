@@ -34,7 +34,7 @@ int ej15(){
   fila 5 con el promedio de las filas superiores. Asignación de ceros a la columna 21 de valor esperado*/
    int A[5][23];
    int sum[20], sum2[5];
-   int i, j, k, p, q, r, s, f, c, ceros, ceros2, ceros3, hs;
+   int i, j, ceros, ceros2, ceros3, hs;
    for (ceros=1; ceros<=20; ceros++){
       sum[ceros-1]=0;
    }
@@ -52,40 +52,40 @@ int ej15(){
     while (band) {
 /*Asignación de los valores del día actual (columna 21) y promedio de estos en A(5x21)*/
       A[4][20]=0;
-      for (q=1; q<=4; q++){
-         hs=(q-1)*6;
+      for (i=1; i<=4; i++){
+         hs=(i-1)*6;
          printf("Ingrese el valor de producción correspondiente a las %d:00 hs ==>  ",hs);
-         scanf("%d",&A[q-1][20]);
-         A[4][20]=A[4][20]+A[q-1][20];
+         scanf("%d",&A[i-1][20]);
+         A[4][20]=A[4][20]+A[i-1][20];
       } A[4][20]=A[4][20]/4;
 /*Asignación de la predicción (columna 23)*/
       for (ceros2=1; ceros2<=5; ceros2++){
          sum2[ceros2-1]=0;
       }
-      for (k=1; k<=5; k++){
-         for (p=1; p<=21; p++){
-            sum2[k-1]=sum2[k-1]+A[k-1][p-1];
-         } A[k-1][22]=sum2[k-1]/21;
+      for (i=1; i<=5; i++){
+         for (j=1; j<=21; j++){
+            sum2[i-1]=sum2[i-1]+A[i-1][j-1];
+         } A[k-1][22]=sum2[i-1]/21;
       }
 /*Matriz en pantalla*/
-      for (f=1; f<=6; f++){
-         for (c=1; c<=23; c++){
-            if (f==1){
-               if (c==21){
+      for (i=1; i<=6; i++){
+         for (j=1; j<=23; j++){
+            if (i==1){
+               if (j==21){
                   printf("Actual ");
-               } else if (c==22){
+               } else if (j==22){
                   printf("Espera ");
-               } else if (c==23){
+               } else if (j==23){
                   printf("Predic ");
-               } else if (c<10){
-                  printf("Dia%d  ",c);
-               } else if (c>=10 && c<21){
-                  printf("Dia%d ",c);
+               } else if (j<10){
+                  printf("Dia%d  ",j);
+               } else if (j>=10 && j<21){
+                  printf("Dia%d ",j);
                }
-            } else if (c==23){
-               printf("    %d",A[f-2][c-1]);
+            } else if (j==23){
+               printf("    %d",A[i-2][j-1]);
             } else {
-               printf("  %d  ",A[f-2][c-1]);
+               printf("  %d  ",A[i-2][j-1]);
             }
          } printf("\n");
       }
@@ -103,15 +103,15 @@ int ej15(){
          /*if (resp=='y' || resp=='Y'){
             band=0;
          } else{*/
-            for (r=1; r<=5; r++){
-               for (s=2; s<=23; s++){
-                  if (s==22){
-                     A[r-1][20]=0; //La nueva columna de día actual se hace 0
-                  } else if (s==23){
-                     A[r-1][s-2]=A[r-1][s-1]; //Traslado de la columna 23 (predicción) a la 22 (esperada)
-                     A[r-1][22]=0; //La nueva columna de predicción se hace 0
+            for (i=1; i<=5; i++){
+               for (j=2; j<=23; j++){
+                  if (j==22){
+                     A[i-1][20]=0; //La nueva columna de día actual se hace 0
+                  } else if (j==23){
+                     A[i-1][j-2]=A[i-1][j-1]; //Traslado de la columna 23 (predicción) a la 22 (esperada)
+                     A[i-1][22]=0; //La nueva columna de predicción se hace 0
                   } else {
-                     A[r-1][s-2]=A[r-1][s-1]; //Traslado de las variables viejas a la izquierda.
+                     A[i-1][j-2]=A[i-1][j-1]; //Traslado de las variables viejas a la izquierda.
                   }
                }
             } break;
