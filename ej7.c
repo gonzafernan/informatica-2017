@@ -23,7 +23,7 @@ int ej7(){
         for (i=1;i<=num;i++) {
             r=r*i;
         }
-        printf("%d!=%Lf\n",num,r);
+        printf("%d!=%.0Lf\n",num,r);
         
     }
     
