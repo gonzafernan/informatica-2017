@@ -28,7 +28,7 @@ int ej15(){
    colocan en la columna 21 y así sucesivamente.
    Al final de cada día coloca una pregunta para seguir utilizando el programa o cortarlo.
    */
-printf("Por favor maximize el tamaño de la consola para poder visalizar correctamente la matriz"\n);
+
 /*Inicialización:
   Generación de una matriz inicial de 4x20 con random limitado entre 10 y 60 ( rand() %51 +10) y una
   fila 5 con el promedio de las filas superiores. Asignación de ceros a la columna 21 de valor esperado*/
@@ -48,9 +48,9 @@ printf("Por favor maximize el tamaño de la consola para poder visalizar correct
    }
    boolean band=TRUE;
 
-/*Ciclo iterativo do while*/
+//Ciclo iterativo do while
     while (band) {
-/*Asignación de los valores del día actual (columna 21) y promedio de estos en A(5x21)*/
+//Asignación de los valores del día actual (columna 21) y promedio de estos en A(5x21)
       A[4][20]=0;
       for (q=1; q<=4; q++){
          hs=(q-1)*6;
@@ -58,7 +58,7 @@ printf("Por favor maximize el tamaño de la consola para poder visalizar correct
          scanf("%d",&A[q-1][20]);
          A[4][20]=A[4][20]+A[q-1][20];
       } A[4][20]=A[4][20]/4;
-/*Asignación de la predicción (columna 23)*/
+//Asignación de la predicción (columna 23)
       for (ceros2=1; ceros2<=5; ceros2++){
          sum2[ceros2-1]=0;
       }
@@ -67,7 +67,7 @@ printf("Por favor maximize el tamaño de la consola para poder visalizar correct
             sum2[k-1]=sum2[k-1]+A[k-1][p-1];
          } A[k-1][22]=sum2[k-1]/21;
       }
-/*Matriz en pantalla*/
+//Matriz en pantalla
       for (f=1; f<=6; f++){
          for (c=1; c<=23; c++){
             if (f==1){
@@ -89,7 +89,7 @@ printf("Por favor maximize el tamaño de la consola para poder visalizar correct
             }
          } printf("\n");
       }
-/*Continuar?? y Reemplazo de variables*/
+//Continuar?? y Reemplazo de variables
       char resp;
       printf("Desea salir del sistema?? Y / any other key\n");
       scanf(" %c",&resp);
