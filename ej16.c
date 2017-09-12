@@ -16,7 +16,7 @@ typedef int boolean;
 #define FALSE 0
 
 int ej16(){
-printf("Por favor maximize el tamaño de la consola para poder visalizar correctamente la matriz"\n);
+printf("Por favor maximize el tamaño de la consola para poder visalizar correctamente la matriz\n");
 /*Inicialización:
   Generación de una matriz base de 5x23 utilizando 4 vectores struct vec y 1 vector struct vecprom*/
    int i, hs;
