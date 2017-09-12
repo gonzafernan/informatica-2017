@@ -18,7 +18,6 @@ int ej8();
 int ej9();
 int ej11();
 int ej14();
-int ej15();
 int ej16();
 int ej17();
 
