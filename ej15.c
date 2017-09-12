@@ -48,9 +48,9 @@ int ej15(){
    }
    boolean band=TRUE;
 
-/*Ciclo iterativo do while*/
+//Ciclo iterativo do while
     while (band) {
-/*Asignación de los valores del día actual (columna 21) y promedio de estos en A(5x21)*/
+//Asignación de los valores del día actual (columna 21) y promedio de estos en A(5x21)
       A[4][20]=0;
       for (i=1; i<=4; i++){
          hs=(i-1)*6;
@@ -58,7 +58,7 @@ int ej15(){
          scanf("%d",&A[i-1][20]);
          A[4][20]=A[4][20]+A[i-1][20];
       } A[4][20]=A[4][20]/4;
-/*Asignación de la predicción (columna 23)*/
+//Asignación de la predicción (columna 23)
       for (ceros2=1; ceros2<=5; ceros2++){
          sum2[ceros2-1]=0;
       }
@@ -67,6 +67,7 @@ int ej15(){
             sum2[i-1]=sum2[i-1]+A[i-1][j-1];
          } A[k-1][22]=sum2[i-1]/21;
       }
+      
 /*Matriz en pantalla*/
       for (i=1; i<=6; i++){
          for (j=1; j<=23; j++){
@@ -89,7 +90,7 @@ int ej15(){
             }
          } printf("\n");
       }
-/*Continuar?? y Reemplazo de variables*/
+//Continuar?? y Reemplazo de variables
       char resp;
       printf("Desea salir del sistema?? Y / any other key\n");
       scanf(" %c",&resp);
