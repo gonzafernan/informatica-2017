@@ -103,8 +103,12 @@ int ej6(){
     }
     
     //Datos de salida.
-    printf("Fecha del día anterior: %d/%d/%d \n",dayb,monthb,yearb);
-    printf("Fecha del día posterior: %d/%d/%d \n",daya,montha,yeara);
-    printf("Fecha del último día del mes: %d/%d/%d \nFaltan %d días para finalizar el mes.\n",dayl,month,year,numdays);
+     if (dayl<day || year<=0 || year>12 || month<=0 || day<=0){
+        printf("ERROR: La fecha ingresada no existe.");
+    } else {
+        printf("Fecha del día anterior: %d/%d/%d \n",dayb,monthb,yearb);
+        printf("Fecha del día posterior: %d/%d/%d \n",daya,montha,yeara);
+        printf("Fecha del último día del mes: %d/%d/%d \nFaltan %d días para finalizar el mes.\n",dayl,month,year,numdays);
+    }
     return 0;
 }
