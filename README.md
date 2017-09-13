@@ -11,3 +11,5 @@ Integrantes:
 - QUIROGA, Gabriel
 
 Para compilar usando la consola hay que ejecutar gcc ejx.c(poner los nombres de todos los archivos) -lm -o [nombre del archivo compilado] // -lm se usa para linkear la librería, para que el compilador sepa dónde está 
+
+Link: https://github.com/FernandezGFG/informatica-2017
