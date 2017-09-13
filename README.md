@@ -11,7 +11,7 @@ Integrantes:
 - FERNÁNDEZ, Gonzalo
   -Legajo Nº 11544
 - PERALTA, Andrés
-  -Legajo Nº
+  -Legajo Nº 11510
 - QUIROGA, Gabriel
   -Legajo Nº
 
