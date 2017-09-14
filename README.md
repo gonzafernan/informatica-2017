@@ -4,17 +4,12 @@ Trabajos prácticos de informática, año 2017. Ingeniería en mecatrónica. Uni
 
 Grupo Nº5
 Integrantes: 
-- AVANZINI, Gino
-  -Legajo Nº
+- AVANZINI, Gino - 11355
+- FERNÁNDEZ, Gonzalo - 11544
 - GIUNTA, Sebastián
-  -Legajo Nº
-- FERNÁNDEZ, Gonzalo
-  -Legajo Nº 11544
-- PERALTA, Andrés
-  -Legajo Nº 11510
+- PERALTA, Andrés - 11510
 - QUIROGA, Gabriel
-  -Legajo Nº
 
-Para compilar usando la consola hay que ejecutar gcc ejx.c(poner los nombres de todos los archivos) -lm -o [nombre del archivo compilado] // -lm se usa para linkear la librería, para que el compilador sepa dónde está 
+Para compilar usando la consola hay que ejecutar gcc y agregar -lm al comando // -lm se usa para linkear la librería, para que el compilador sepa dónde está 
 
 Link: https://github.com/FernandezGFG/informatica-2017
