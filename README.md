@@ -6,7 +6,7 @@ Grupo Nº5
 Integrantes: 
 - AVANZINI, Gino - 11355
 - FERNÁNDEZ, Gonzalo - 11544
-- GIUNTA, Sebastián
+- GIUNTA, Sebastián - 11302
 - PERALTA, Andrés - 11510
 - QUIROGA, Gabriel
 
