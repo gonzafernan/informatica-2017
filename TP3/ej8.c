@@ -8,15 +8,20 @@
 #include <stdio.h>
 
 int ej8(){
-    int a,b,c,i,r=0;
+    int a,b,c,d,i,r=0;
     printf("Ingrese valor inicial, final y número, en el respectivo orden: \n");
     scanf("%d%d%d",&a,&b,&c);
-    for (i=a;i<=b;i++){
+  if (b<a){
+    d=a;
+    a=b;
+    b=d;
+  }
+  for (i=a;i<=b;i++){
         if (i%c==0){
             r++;
         }
-    }
-    printf("Hay %d números divisibles por %d.\n",r,c);
+  }
+    printf("Hay %d números divisibles por %d entre %d y %d.\n",r,c,a,b);
     
     return 0;
 }
