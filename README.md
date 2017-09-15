@@ -10,6 +10,6 @@ Integrantes:
 - PERALTA, Andrés - 11510
 - QUIROGA, Gabriel
 
-Para compilar usando la consola hay que ejecutar gcc y agregar -lm al comando // -lm se usa para linkear la librería, para que el compilador sepa dónde está 
+Para compilar usando la consola hay que ejecutar gcc y agregar -lm al comando // -lm se usa para linkear la librería math.h, para que el compilador sepa dónde está 
 
 Link: https://github.com/FernandezGFG/informatica-2017
