@@ -10,11 +10,11 @@
 #include <stdlib.h>
 
 int ej1(){
-  float num;
-  int vector[0],*v;
+  int num,*v;
   printf("Ingrese el valor de un entero:\n");
-  scanf("%f",&num);
-  v=malloc(sizeof(vector));
+  scanf("%d",&num);
+  v=malloc(sizeof(double)*num);
   printf("%p",v);
   return 0;
 }
+
