@@ -7,7 +7,7 @@
 #ifndef ejercicios_h
 #define ejercicios_h
 
-double *ej1();
+double *ej1(int num);
 int ej2();
 int ej3();
 int ej4();
