@@ -1,5 +1,5 @@
 //
-//  main.c
+//  ej1.c
 //  Informatica-2017
 //  Escriba una función que reciba como argumento un entero N,
 //  cree un vector de N elementos de tipo double dinámicamente (utilizando la función malloc),
@@ -9,12 +9,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int ej1(){
-  int num,*v;
-  printf("Ingrese el valor de un entero:\n");
-  scanf("%d",&num);
-  v=malloc(sizeof(double)*num);
-  printf("%p",v);
-  return 0;
+int *ej1(int num){
+  int i,*v;
+  v=(int *)calloc(num,sizeof(int));
+  //  Verificación de malloc()
+  if (v==NULL){
+    printf("ERROR al reservar la memoria.\n");
+  }
+  //  Vector de ceror (No es necesario)
+  for (i=0;i<num;i++){
+    *(v+i)=0;
+  }
+  printf("%p\n",v);
+  return v;
 }
 
