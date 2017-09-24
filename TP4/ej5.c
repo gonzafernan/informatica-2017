@@ -6,6 +6,9 @@
 //  (ej: utilizando notación algebraica: “ (v1, v2, ..., vn) ”)
 //
 
+#include <stdio.h>
+#include <stdlib.h>
+
 void ej5(double *u,num){
   int i;
   printf("Vector en notación algebraica:\n(");
