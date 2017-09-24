@@ -10,7 +10,7 @@
 int ej1();
 int ej2();
 int ej3();
-int ej4();
+void ej4(double *u,int n);
 int ej5();
 int ej6();
 int ej7();
