@@ -39,3 +39,28 @@ int ej14(){
     }
     return 0;
 }
+
+/*
+int ej14(){
+    int n,i;
+    printf("Ingrese el término hasta el cual quiere saber la sucesión de Fibonacci\n");
+    scanf("%d",&n);
+    unsigned long long fibo[n];
+    printf("La sucesión de Fibonacci hasta el término %d es\n",n);
+    
+    fibo[0]=1;
+    fibo[1]=1;
+    
+    for(i=2;i<=n-1;i++){
+        fibo[i]=fibo[i-1]+fibo[i-2];
+    }
+    
+    for(i=0;i<=n-1;i++){
+        printf("%llu ",fibo[i]);
+        if(i==n-1){
+            printf("\n");
+        }
+    }
+    return 0;
+}
+*/
