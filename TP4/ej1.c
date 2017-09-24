@@ -9,16 +9,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int *ej1(int num){
+double *ej1(int num){
   int i,*v;
-  v=(int *)calloc(num,sizeof(int));
+  v=(double *)calloc(num,sizeof(double));
   //  Verificación de malloc()
   if (v==NULL){
     printf("ERROR al reservar la memoria.\n");
-  }
-  //  Vector de ceror (No es necesario)
-  for (i=0;i<num;i++){
-    *(v+i)=0;
   }
   printf("%p\n",v);
   return v;
