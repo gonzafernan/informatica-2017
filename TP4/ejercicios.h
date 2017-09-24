@@ -8,7 +8,7 @@
 #define ejercicios_h
 
 int ej1();
-int ej2();
+double *ej2();
 int ej3();
 int ej4();
 int ej5();
