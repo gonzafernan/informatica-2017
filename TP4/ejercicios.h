@@ -9,7 +9,7 @@
 
 int ej1();
 int ej2();
-int ej3();
+void ej3(double *vec,double s,int num);
 int ej4();
 int ej5();
 int ej6();
