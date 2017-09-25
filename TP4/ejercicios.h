@@ -13,7 +13,7 @@ int ej3();
 int ej4();
 int ej5();
 int ej6();
-int ej7();
+double **ej7(int M,int N);
 int ej8();
 int ej9();
 int ej10();
