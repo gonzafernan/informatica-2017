@@ -10,8 +10,9 @@
 #include <stdlib.h>
 
 double *ej1(int num){
-  int i,*v;
-  v=(double *)calloc(num,sizeof(double));
+  int i;
+  double *v;
+  v=calloc(num,sizeof(double));
   //  Verificación de malloc()
   if (v==NULL){
     printf("ERROR al reservar la memoria.\n");
