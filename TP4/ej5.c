@@ -11,7 +11,7 @@
 
 void ej5(double *u,num){
   int i;
-  printf("Vector en notación algebraica:\n(");
+  printf("(");
   for (i=0;i<num;i++){
     if (i<num-1){
       printf("%lf, ",u[i]);
