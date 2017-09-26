@@ -16,7 +16,5 @@ void ej3(double *vec,double s,int num){
     vec[i]=vec[i]*s;
   }
   printf("El vector escalado por %lf es:\n",s);
-  for (i=0;i<num;i++) {
-    printf("%lf\n",vec[i]);
-  }
+  ej5(vec,num);
 }
