@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-double **ej10(double **matriz,double M,double N){
+void ej10(double **matriz,int M,int N){
   int i,j;
   srand(time(NULL));
   for (i=0;i<M;i++){
