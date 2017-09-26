@@ -20,7 +20,7 @@
 #include <time.h>
 #include"ejercicios.h"
 
-int main(){
+void ej13(){
 int M,N,P;
 srand(time(NULL));
 double s;
@@ -102,6 +102,5 @@ for (i=0;i<M;i++){
  free(C2);
  free(C3);
 
- return 0;
  }
 
