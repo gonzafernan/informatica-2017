@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-double **ej9(double **matriz,double M,double N,double s){
+void ej9(double **matriz,int M,int N,double s){
   int i,j;
   for (i=0;i<M;i++){
     for (j=0;j<N;j++){
