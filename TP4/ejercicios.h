@@ -11,7 +11,7 @@ double *ej1(int num);
 double *ej2(double *u,double *v,int num);
 void ej3(double *vec,double s,int num);
 void ej4(double *u,int n);
-int ej5();
+void ej5(double *u,num);
 int ej6();
 int ej7();
 int ej8();
