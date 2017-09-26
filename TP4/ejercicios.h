@@ -7,10 +7,10 @@
 #ifndef ejercicios_h
 #define ejercicios_h
 
-int ej1();
-int ej2();
-int ej3();
-int ej4();
+double *ej1(int num);
+double *ej2(double *u,double *v,int num);
+void ej3(double *vec,double s,int num);
+void ej4(double *u,int n);
 void ej5(double *u,num);
 int ej6();
 int ej7();
