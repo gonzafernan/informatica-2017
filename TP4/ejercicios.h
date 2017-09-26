@@ -17,7 +17,7 @@ int ej7();
 int ej8();
 int ej9();
 int ej10();
-int ej11();
+void ej11(double **matriz,double M,double N);
 int ej12();
 int ej13();
 int ej14();
