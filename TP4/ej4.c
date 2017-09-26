@@ -24,4 +24,16 @@ void ej4(double *u,int n){
     u[i]=drand48()*(20.0-10.0)+10.0;
     printf("%lf\n",u[i]);
   }
+  /*
+  int i; 
+  srand (time(NULL));
+  for(i=0;i<n;i++){
+    u[i]=(double)rand()/(double)rand();
+    // printf("%lf ",u[i]); //después decidimos si imprime por pantalla los valores del vector o no 
+  } //printf("\n");
+  
+  }
+
+  */
+  
 }
