@@ -8,7 +8,7 @@
 #define ejercicios_h
 
 double *ej1(int num);
-int ej2();
+double *ej2(double *u,double *v,int num);
 void ej3(double *vec,double s,int num);
 void ej4(double *u,int n);
 int ej5();
