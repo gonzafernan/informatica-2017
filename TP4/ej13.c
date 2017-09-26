@@ -1,4 +1,3 @@
-//
 //  ej13.c
 //  Informatica-2017
 // Escriba un programa que:
@@ -19,7 +18,10 @@
 #include<stdlib.h>
 #include"ejercicios.h"
 
-void ej13(double M, double N, double P,double s){
+void ej13{
+int M,N,P;
+  printf("escriba los valores enteros M,N y P: \n");
+  scanf("%d %d %d",M,N,P);
   //(b) matrices aleatrias
   double **A,**B,**C,**D; //generar los espacios de memoria
   A=ej7(M,N);
@@ -27,23 +29,23 @@ void ej13(double M, double N, double P,double s){
   C=ej7(N,P);
   D=ej7(N,P);
 
-  A=ej10(&A,M,N);//aca no estoy seguro como pasar el apuntador de la matriz al ej10(creo que es por referencia por que quiero que se modifiquen las matrices)
+  A=ej10(A,M,N);//aca no estoy seguro como pasar el apuntador de la matriz al ej10(creo que es por referencia por que quiero que se modifiquen las matrices)
   ej11(A,M,N);
-  B=ej10(&B,M,N);
+  B=ej10(B,M,N);
   ej11(B,M,N);
-  C=ej10(&C,N,P);
+  C=ej10(C,N,P);
   ej11(C,N,P);
-  D=ej10(&D,N,P);
+  D=ej10(D,N,P);
   ej11(D,N,P);
-
+pri
   //(d) escalar por s usando el ej9
-  A=ej9(&A,M,N,s)
+  A=ej9(A,M,N,s)
     ej11(A,M,N);
-  B=ej9(&B,M,N,s);
+  B=ej9(B,M,N,s);
     ej11(B,M,N);
-  C=ej9(&C,N,P,s);
+  C=ej9(C,N,P,s);
     ej11(C,N,P);
-  D=ej9(&D,N,P,s);
+  D=ej9(D,N,P,s);
     ej11(D,N,P);
 
   //(e) producto de matrices AxC y BxD
@@ -52,7 +54,7 @@ void ej13(double M, double N, double P,double s){
   C2=ej8(B,D,M,N,P);
 
   //(f)matriz transpuesta de C2 (lo pase por referencia para que cambie el valor de c2 pero este si que no se como anda por que no solo cambiarian los valores tambien las filas y columnas)
-  C2=ej12(&C2,M,P);
+  C2=ej12(C2,M,P);
     ej11(C2,M,P);
   //(g)producto de matrices
   double **C3;
