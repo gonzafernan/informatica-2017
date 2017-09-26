@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-void ej10(double **matriz,double M,double N){
+double **ej10(double **matriz,double M,double N){
   int i,j;
   srand(time(NULL));
   for (i=0;i<M;i++){
@@ -16,4 +16,5 @@ void ej10(double **matriz,double M,double N){
       matriz[i][j]=(double)rand()/(double)rand();
     }
   }
+  return matriz;
 }
