@@ -6,7 +6,8 @@
 cree una matriz de MxN de tipo double dinámicamente (calloc) y
 devuelva un apuntador con la direccón de memoria del arreglo creado*/
 
-double **ej7(double M, double N){
+
+double **ej7(int M, int N){
   int i;
   double **mat;
   mat=calloc(M,sizeof(double*));
