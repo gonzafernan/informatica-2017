@@ -17,12 +17,16 @@
 
 #include<stdio.h>
 #include<stdlib.h>
+#include <time.h>
 #include"ejercicios.h"
 
-void ej13(){
+int main(){
 int M,N,P;
+srand(time(NULL));
+double s;
+//(a)
   printf("escriba los valores enteros M,N y P: \n");
-  scanf("%d %d %d",M,N,P);
+  scanf("%d %d %d",&M,&N,&P);
   //(b) matrices aleatrias
   double **A,**B,**C,**D; //generar los espacios de memoria
   A=ej7(M,N);
@@ -30,50 +34,53 @@ int M,N,P;
   C=ej7(N,P);
   D=ej7(N,P);
 
-  A=ej10(A,M,N);//aca no estoy seguro como pasar el apuntador de la matriz al ej10(creo que es por referencia por que quiero que se modifiquen las matrices)
+  ej10(A,M,N);//aca no estoy seguro como pasar el apuntador de la matriz al ej10(creo que es por referencia por que quiero que se modifiquen las matrices)
   printf("la matriz A es:\n");
   ej11(A,M,N);
-  B=ej10(B,M,N);
+  ej10(B,M,N);
   printf("la matriz B es:\n");
   ej11(B,M,N);
-  C=ej10(C,N,P);
+  ej10(C,N,P);
   printf("la matriz C es:\n");
   ej11(C,N,P);
-  D=ej10(D,N,P);
+  ej10(D,N,P);
   printf("la matriz D es:\n");
   ej11(D,N,P);
-pri
+
   //(d) escalar por s usando el ej9
-  A=ej9(A,M,N,s)
+  printf("Ingrese el factor:\n");
+  scanf("%lf",&s);
+
+  ej9(A,M,N,s);
   printf("la matriz A escalada por %lf es:\n",s);
     ej11(A,M,N);
-  B=ej9(B,M,N,s);
+  ej9(B,M,N,s);
   printf("la matriz B escalada por %lf es:\n",s);
     ej11(B,M,N);
-  C=ej9(C,N,P,s);
+  ej9(C,N,P,s);
   printf("la matriz C escalada por %lf es:\n",s);
     ej11(C,N,P);
-  D=ej9(D,N,P,s);
+  ej9(D,N,P,s);
   printf("la matriz D escalada por %lf es:\n",s);
     ej11(D,N,P);
 
   //(e) producto de matrices AxC y BxD
   double **C1,**C2;
-  printf("la matriz C1=AxC es:\n",s);
+  printf("la matriz C1=AxC es:\n");
   C1=ej8(A,C,M,N,P);
-  printf("la matriz C2=BxD es:\n",s);
+  printf("la matriz C2=BxD es:\n");
   C2=ej8(B,D,M,N,P);
 
   //(f)matriz transpuesta de C2 (lo pase por referencia para que cambie el valor de c2 pero este si que no se como anda por que no solo cambiarian los valores tambien las filas y columnas)
-  C2=ej12(C2,M,P);
-  printf("la matriz C2 transpuesta es:\n",s);
+  ej12(C2,M,P);
+  printf("la matriz C2 transpuesta es:\n");
     ej11(C2,M,P);
   //(g)producto de matrices
   double **C3;
-printf("la matriz C3=C1xC2 es:\n",s);
+printf("la matriz C3=C1xC2 es:\n");
   C3=ej8(C1,C2,M,P,M);
 //(h) liberar los espacios de memoria
-int i
+int i;
 for (i=0;i<M;i++){
   free(A[i]);
   free(B[i]);
@@ -94,4 +101,7 @@ for (i=0;i<M;i++){
  free(C1);
  free(C2);
  free(C3);
+
+ return 0;
  }
+
