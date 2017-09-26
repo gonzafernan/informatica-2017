@@ -16,7 +16,7 @@ void ej6();
 double **ej7(int M,int N);
 double **ej8(double **matrizA,double **matrizB,int M,int N, int P);
 void ej9(double **matriz,int M,int N,double s);
-int ej10();
+void ej10(double **matriz,int M,int N);
 int ej11();
 int ej12();
 int ej13();
