@@ -19,7 +19,7 @@ int ej9();
 int ej10();
 int ej11();
 int ej12();
-void ej13(double M, double N, double P,double s);
+void ej13();
 int ej14();
 
 #define MAP_BOOLEAN(X) X==TRUE?"TRUE":"FALSE"
