@@ -19,7 +19,7 @@
 #include<stdlib.h>
 #include"ejercicios.h"
 
-void ej13{
+void ej13(){
 int M,N,P;
   printf("escriba los valores enteros M,N y P: \n");
   scanf("%d %d %d",M,N,P);
