@@ -18,7 +18,7 @@ int ej8();
 int ej9();
 int ej10();
 int ej11();
-int ej12();
+void ej12(double*u, int M, int N);
 int ej13();
 int ej14();
 
