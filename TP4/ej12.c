@@ -8,14 +8,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void ej12(double*u, int M, int N){
+void ej12(double **u, int M, int N){
    double paso;
    int i, j;
    for (i=0; i<M; i++){
       for (j=i; j<N; j++){
-         paso=u[i,j];
-         u[i,j]=u[j,i];
-         u[j,i]=paso;
+         paso=u[i][j];
+         u[i][j]=u[j][i];
+         u[j][i]=paso;
       }
    }
 }
