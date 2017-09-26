@@ -7,11 +7,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void ej9(double **matriz,double M,double N,double s){
+double **ej9(double **matriz,double M,double N,double s){
   int i,j;
   for (i=0;i<M;i++){
     for (j=0;j<N;j++){
       matriz[i][j]=s*matriz[i][j];
     }
   }
+  return matriz
 }
