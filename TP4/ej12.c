@@ -11,11 +11,11 @@
 void ej12(double*u, int M, int N){
    double paso;
    int i, j;
-   for (i=1; i<=M; i++){
-      for (j=i; j<=N; j++){
-         paso=u[i-1,j-1];
-         u[i-1,j-1]=u[j-1,i-1];
-         u[j-1,i-1]=paso;
+   for (i=0; i<M; i++){
+      for (j=i; j<N; j++){
+         paso=u[i,j];
+         u[i,j]=u[j,i];
+         u[j,i]=paso;
       }
    }
 }
