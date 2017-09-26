@@ -10,7 +10,6 @@
 
 void ej10(double **matriz,int M,int N){
   int i,j;
-  srand(time(NULL));
   for (i=0;i<M;i++){
     for (j=0;j<N;j++){
       matriz[i][j]=(double)rand()/(double)rand();
