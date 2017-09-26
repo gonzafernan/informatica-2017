@@ -12,7 +12,7 @@
 #include <stdlib.h>
 #include "ejercicios.h"
 
-double **ej8(double **matrizA,double **matrizB,double M,double N, double P){
+double **ej8(double **matrizA,double **matrizB,int M,int N, int P){
   double **matrizC,sum=0;
   matrizC=ej7(M,P);
   int i,j,k;
