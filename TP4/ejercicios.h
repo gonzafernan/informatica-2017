@@ -13,7 +13,7 @@ void ej3(double *vec,double s,int num);
 void ej4(double *u,int n);
 void ej5(double *u,num);
 int ej6();
-int ej7();
+double **ej7(int M,int N);
 int ej8();
 int ej9();
 int ej10();
