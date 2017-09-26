@@ -14,7 +14,7 @@ int ej4();
 int ej5();
 int ej6();
 int ej7();
-int ej8();
+double **ej8(double **matrizA,double **matrizB,double M,double N, double P);
 int ej9();
 int ej10();
 int ej11();
