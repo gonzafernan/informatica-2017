@@ -22,7 +22,7 @@ void ej4(double *u,int n){
   printf("Vector con valores random:\n");
   for (i=0;i<n;i++) {
     u[i]=drand48()*(20.0-10.0)+10.0;
-    printf("%lf\n",u[i]);
+    //printf("%lf\n",u[i]);
   }
   /*
   int i; 
