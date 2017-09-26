@@ -19,7 +19,7 @@ void ej9(double **matriz,int M,int N,double s);
 void ej10(double **matriz,int M,int N);
 void ej11(double **matriz,int M,int N);
 void ej12(double*u, int M, int N);
-int ej13();
+void ej13();
 int ej14();
 
 #define MAP_BOOLEAN(X) X==TRUE?"TRUE":"FALSE"
