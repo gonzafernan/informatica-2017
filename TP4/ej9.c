@@ -14,5 +14,5 @@ double **ej9(double **matriz,double M,double N,double s){
       matriz[i][j]=s*matriz[i][j];
     }
   }
-  return matriz
+  return matriz;
 }
