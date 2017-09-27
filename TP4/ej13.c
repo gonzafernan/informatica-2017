@@ -17,12 +17,10 @@
 
 #include<stdio.h>
 #include<stdlib.h>
-#include <time.h>
 #include"ejercicios.h"
 
 void ej13(){
 int M,N,P;
-srand(time(NULL));
 double s;
 //(a)
   printf("Escriba los valores enteros M,N y P: \n");
