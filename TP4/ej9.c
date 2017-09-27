@@ -14,5 +14,4 @@ void ej9(double **matriz,int M,int N,double s){
       matriz[i][j]=s*matriz[i][j];
     }
   }
-  return matriz;
 }
