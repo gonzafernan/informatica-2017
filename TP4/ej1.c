@@ -17,7 +17,7 @@ double *ej1(int num){
   if (v==NULL){
     printf("ERROR al reservar la memoria.\n");
   }
-  printf("%p\n",v);
+  //printf("%p\n",v);
   return v;
 }
 
