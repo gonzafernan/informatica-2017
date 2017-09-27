@@ -70,6 +70,9 @@ double s;
   C2=ej8(B,D,M,N,P);
 
   //(f)matriz transpuesta de C2 (lo pase por referencia para que cambie el valor de c2 pero este si que no se como anda por que no solo cambiarian los valores tambien las filas y columnas)
+  if (M!=N || M!=P || N!=P) {
+    printf("ERROR: Las matrices no son cuadradas. \n");
+  }
   ej12(C2,M,P);
   printf("La matriz C2 transpuesta es:\n");
     ej11(C2,M,P);
