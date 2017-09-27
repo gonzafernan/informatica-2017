@@ -11,7 +11,7 @@ double *ej1(int num);
 double *ej2(double *u,double *v,int num);
 void ej3(double *vec,double s,int num);
 void ej4(double *u,int n);
-void ej5(double *u,num);
+void ej5(double *u,int num);
 void ej6();
 double **ej7(int M,int N);
 double **ej8(double **matrizA,double **matrizB,int M,int N, int P);
