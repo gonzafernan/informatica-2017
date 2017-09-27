@@ -15,5 +15,4 @@ void ej10(double **matriz,int M,int N){
       matriz[i][j]=(double)rand()/(double)rand();
     }
   }
-  return matriz;
 }
