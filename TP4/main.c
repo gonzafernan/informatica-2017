@@ -16,7 +16,7 @@ int main() {
    //NULL: inicializa la función time en 0.
    srand(time(NULL)); //Para que en cada ejecucion del programa los valores aleatorios sean distintos
    do{
-      printf("Ingrese sección del trabajo práctico a ejecutar, siendo:\n  1- Ejercicio 6: Donde se reúnen los ejercicios del 1 al 5 en un solo procedimiento.\n  2- Ejercicio 13: Donde se reúnen los ejercicios del 7 al 12 en un solo procedimiento.\n  3- Sección sucesión de Fibonacci (RECURSIÓN).");
+      printf("Ingrese sección del trabajo práctico a ejecutar, siendo:\n  1- Ejercicio 6: Donde se reúnen los ejercicios del 1 al 5 en un solo procedimiento.\n  2- Ejercicio 13: Donde se reúnen los ejercicios del 7 al 12 en un solo procedimiento.\n  3- Sección sucesión de Fibonacci (RECURSIÓN).\n");
        scanf(" %d",&seccion);
        switch (seccion) {
                case(1):
