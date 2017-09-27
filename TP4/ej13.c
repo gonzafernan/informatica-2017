@@ -23,7 +23,7 @@ void ej13(){
 int M,N,P;
 double s;
 //(a)
-  printf("Escriba los valores enteros M,N y P: \n");
+  printf("Escriba los valores enteros M,N y P (Considere que de no ingresar matrices cuadradas a la hora de calcular transpuesta habrá un error de violación de segmento): \n");
   scanf("%d %d %d",&M,&N,&P);
   //(b) matrices aleatrias
   double **A,**B,**C,**D; //generar los espacios de memoria
