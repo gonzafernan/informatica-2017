@@ -9,6 +9,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "ejercicios.h"
 
 void ej3(double *vec,double s,int num){
   int i;
