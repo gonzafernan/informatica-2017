@@ -24,7 +24,7 @@ void ej6(){
   scanf("%d",&N);
   printf("a) Entero introducido: %d\n",N);
   //  Inciso b:
-  printf("b) ", );
+  printf("b) ");
   double *vec1,*vec2,*vec3,*vec4;
   vec1=ej1(N);  //Vector 1
   ej4(vec1,N);
