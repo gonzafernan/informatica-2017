@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void ej5(double *u,num){
+void ej5(double *u,int num){
   int i;
   printf("(");
   for (i=0;i<num;i++){
