@@ -1,4 +1,10 @@
 
+# Escriba un programa que solicite al usuario un valor en binario y luego retorne
+# su valor en sistema decimal, hexadecimal y octal. Implemente dos versiones
+# a) Sin utilizar funciones incluidas en el interprete (built-in functions)
+# b) Utilizando las funciones incluidas en el interprete (ej: hex(), oct())
+
+
 def strtolist(st1):  # toma un str y devuelve una list de un str por caracter
     lista = [str(x) for x in str(st1)]
     return lista
