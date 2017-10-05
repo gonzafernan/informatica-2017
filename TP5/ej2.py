@@ -18,22 +18,15 @@ if len(ref) < 3 or len(ref) > 6:
     print("Número de cifras no válido, ingrese otro valor")
     quit()
 
-ref2 = int(ref)
-a = 0
 v = []  # list donde se guardan los capicuas mas cercanos
-while a < 3:
-    ref2 = ref2 + 1
-    if capicua(ref2):
-        a = a + 1
-        v.append(ref2)
-
-a = 0
-ref2 = int(ref)
-while a < 3:
-    ref2 = ref2 - 1
-    if capicua(ref2):
-        a = a + 1
-        v.append(int(ref2))
+for i in [1, -1]:
+    ref2 = int(ref)
+    a = 0
+    while a < 3:
+        ref2 = ref2 + i
+        if capicua(ref2):
+            a = a + 1
+            v.append(ref2)
 print(v)
 dist = []
 for i in v:  # encuentra las distancias de ref a los cap cercanos
