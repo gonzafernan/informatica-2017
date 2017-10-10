@@ -45,4 +45,4 @@ def capicua(num):  #Recibe un entero y devuelve una lista
     return cap
 
 
-capicua(587)
+capicua(587)  #cambiar el numero que se quiera evaluar aca
