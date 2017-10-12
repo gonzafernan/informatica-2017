@@ -13,6 +13,30 @@
 # 3. Indique un resumen estadístico: Total de alumnos, cantidad de alumnos por
 # condición y promedio general de todas las notas de todos los alumnos.
 
+
+def cond(dicc):
+    notasfinal = []
+    a = 0
+    if not dicc['entregoTPs?']:
+        return 'recursa'
+
+    for i in dicc['notas']:
+        if i < 6:
+            notasfinal.append(dicc['recuperatorios'][a])
+            a += 1
+        else:
+            notasfinal.append(i)
+
+    for i in notasfinal:
+        if i < 6:
+            return 'recursa'
+
+    if notasfinal[0]*0.3 + notasfinal[1]*0.3 + notasfinal[2]*0.4 >= 7:
+        return 'promociona'
+    else:
+        return 'regular'
+
+
 informatica = [
     {
         'apellido': 'Aronofsky',
@@ -37,3 +61,36 @@ informatica = [
         'recuperatorios': [4, 7],
     }
 ]
+
+for i in informatica:
+    i['condicion'] = cond(i)
+    print(i['apellido'], end=" ")
+    print(i['condicion'])
+
+rec = 0
+reg = 0
+prom = 0
+allnotas = []
+
+for i in informatica:
+    if i['condicion'] == 'regular':
+        reg += 1
+    elif i['condicion'] == 'recursa':
+        rec += 1
+    elif i['condicion'] == 'promociona':
+        prom += 1
+    for j in i['notas']:
+        allnotas.append(j)
+    if 'recuperatorios' in i:
+        for j in i['recuperatorios']:
+            allnotas.append(j)
+sum = 0
+for i in allnotas:
+    sum = sum + i
+promedio = sum/len(allnotas)
+
+print("\nHay %d estudiantes, de los cuales %d promocionan, %d son regulares "
+      "y %d recursan" % (len(informatica), prom, reg, rec))
+
+print("El promedio general de todas las notas de todos los alumnos es %.3f"
+      % promedio)
