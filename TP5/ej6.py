@@ -1,4 +1,4 @@
-# Realizar un programa que modele una partida de ta-te-ti. El mismo debe permitir
+# Realizar un programa que modele una partida de tateti. El mismo debe permitir
 # cargar la elección de los competidores, es decir, la coordenada (i,j) de cada
 # X y O, alternando los turnos, y debe determinar si algún jugador ha ganado la
 # partida, o si ha habido un empate. En caso de completar el tablero y que no
@@ -7,11 +7,11 @@
 # Resumen de las reglas del juego:
 # a) el tablero es de 3x3 y cualquier cuadrícula podrá estar vacía u ocupada
 # solo por una cruz o un círculo.
-# b) Los jugadores juegan por turnos colocando una figura por vez en el tablero.
+# b) Los jugadores juegan por turnos colocando una figura por vez en el tablero
 # c) Cada casillero es ocupado una vez por un jugador en la partida y no es
 # posible cambiar dicho valor.
-# d) Hay un ganador cuando uno de los 2 jugadores forma 3 valores del mismo tipo
-# en horizontal, vertical o diagonal. Puede darse el caso de que haya un empate.
+# d) Hay un ganador cuando uno de los 2 jugadores forma 3 valores iguales
+# en horizontal, vertical o diagonal. Puede darse el caso de que haya un empate
 # No es necesario completar el tablero completo para saber si hay ganador o no.
 
 
