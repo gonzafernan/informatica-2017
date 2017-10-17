@@ -1,12 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
+
+#include "headers.h"
+
 #include <unistd.h> // Biblioteca para multi processing
 #include <signal.h> // Bibilioteca para enviar señales a los procesos
+
 #include <sys/socket.h>		// Sockets
 #include <arpa/inet.h>		// Sockets
-#include <bits/signum.h> 	// Biblioteca conconstantes para los tipos de señales
+//#include <bits/signum.h> 	// Biblioteca conconstantes para los tipos de señales
 #include <sys/wait.h>
 #include <string.h>			// Memset
+
+//#include <pthread.h> // Biblioteca para multi threading
 
 // Variables globales utilizadas para la comunicación entre procesos.
 #define SERVER 0
@@ -21,28 +27,6 @@ typedef int boolean;
 #define TRUE 1
 #define FALSE 0
 boolean en_ejecucion;
-
-//Esta funcion maneja las señales que recibe del kernel ("interrupciones de software")
-void manejador_signals(int signal_type)
-{
-  char rolProceso[10];
-  if(rolProceso == SERVER){
-	  strcpy(rolProceso, "Servidor");
-  } else{
-	  strcpy(rolProceso, "Cliente");
-  }
-  if (signal_type == SIGTERM){
-	  en_ejecucion = FALSE;
-	  printf("%s: Señal SIGTERM recibida. Terminando proceso.\n", rolProceso);
-  }
-  else if (signal_type == SIGKILL){
-	  en_ejecucion = FALSE;
-	  printf("%s: Señal SIGKILL recibida. Terminando proceso.\n", rolProceso);
-  }
-  else
-	printf("Señal desconocida. Ignorando...\n\n");
-}
-
 
 int main(void){
   int pid_B, pid_C;
@@ -103,24 +87,34 @@ int main(void){
     //El proceso se bloquea esperando una conexion
   	sd_aceptado = accept(sd, (struct sockaddr *)&direccionSocketCliente, &longitudDireccionCliente);
 
-    char buffer_lectura[100];
-  	char buffer_envio[100];
-
-  	while(en_ejecucion){
+    char buffer_lectura[10000];
+  	char buffer_envio[10000];
+    //while (en_ejecucion){
   		//Ahora intentamos leer los bytes transferidos. El proceso se bloquea si no hay nada que leer
-  		recv(sd_aceptado, buffer_lectura, sizeof(buffer_lectura), 0);
+  		//recv(sd_aceptado, buffer_lectura, sizeof(buffer_lectura), 0);
+      long int sz_file;
+      recv(sd_aceptado, &sz_file, sizeof(long int), 0);
 
-  		//Esta verificacion solo se necesita para minimizar mensajes y ejecucion si se modifica la bandera en la mitad del bucle
-  		if(en_ejecucion){
+      //Esta verificacion solo se necesita para minimizar mensajes y ejecucion si se modifica la bandera en la mitad del bucle.
+      if(en_ejecucion){
   			//Mostramos lo recibido por pantalla
-  			printf("Servidor recibio: '%s'\n", buffer_lectura);
+  			//printf("Servidor recibio: '%s'\n", buffer_lectura);
+        printf("Servidor recibio: '%li'\n", sz_file);
 
   			//Enviamos una respuesta al cliente
-  			sprintf(buffer_envio, "Respuesta = %d", rand());
-  			send(sd_aceptado, buffer_envio, strlen(buffer_envio), 0);
+  			sprintf(buffer_envio, "Recepción de tamaño del archivo confirmada:\n\tTamaño: %li", sz_file);
+        send(sd_aceptado, buffer_envio, strlen(buffer_envio), 0);
   		}
-  	}
 
+      // Asignación dinámica de memoria:
+      char *file;
+      //file = malloc(sz_file*sizeof(char));
+
+      // Recepción del archivo:
+      recv(sd_aceptado, buffer_lectura, strlen(buffer_lectura), 0);
+      printf("%s\n", buffer_lectura);
+      //free(file);
+    //}
   	//Cerramos el nuevo socket creado con accept
   	close(sd_aceptado);
 
@@ -141,7 +135,7 @@ int main(void){
       // Código a ejecutar por el proceso padre (Proceso A)
       // Leer un archivo de disco.
       FILE *fp;
-      fp = fopen("Hello world.txt","r");
+      fp = fopen("No se culpe a nadie.txt","r");
 
       // Establecer conexión TCP con proceso B (servidor)
       int sd; // Descriptor del socket
@@ -171,25 +165,21 @@ int main(void){
     		conectado = connect(sd, (struct sockaddr *)&direccionSocket,sizeof(direccionSocket));
     	}while(conectado < 0);
 
-    	char buffer_lectura[100];
-    	char buffer_envio[100];
+    	char buffer_lectura[10000];
+    	char buffer_envio[10000];
+      //while (en_ejecucion){
+        // Partición de texto.
 
-      // Partición de texto.
-      char * texto = malloc(15*sizeof(char));
-      if( fp==NULL ){
-       printf("Error al abrir el fichero\n");
-     }else {
-       int i=0;
-       while( !feof(fp) ){
-       buffer_envio[i] = getc(fp);
-        i = i+1;
-      }
-      }
+        /* The C library function int fseek(FILE *stream, long int offset, int whence) (whence: posición)
+        sets the file position of the stream to the given offset. */
+        long int sz;
+        fseek(fp, 0L, SEEK_END);
+        sz = ftell(fp); // Tamaño del texto. ftell() devuelve la posición del fp en el stream.
+        fseek(fp, 0L, SEEK_SET); // Reset del fp en el stream.
 
-    	while(en_ejecucion){
-    		// Enviamos mensaje al servidor
-    		//sprintf(buffer_envio, "Mensaje = %d", rand());
-    		send(sd, buffer_envio, strlen(buffer_envio), 0);
+
+    		// Enviamos el tamaño del archivo al servidor:
+        send(sd, &sz, sizeof(long int), 0);
 
     		//Ahora intentamos leer los bytes transferidos. El proceso se bloquea si no hay nada que leer
     		recv(sd, buffer_lectura, sizeof(buffer_lectura), 0);
@@ -200,9 +190,18 @@ int main(void){
     			printf("\t|--> Cliente recibio: '%s'\n", buffer_lectura);
     		}
 
-    		usleep(100000);
-    	}
+        // Enviamos el archivo al servidor:
+        int i=0, j=0;
+        while (!feof(fp)) {
+          for (i=0; i<sz; i++) {
+            buffer_envio[i]=getc(fp);
+          }
+          send(sd, buffer_envio, strlen(buffer_envio), 0);
+        }
+        printf("%s\n",buffer_envio);
 
+    		usleep(100000);
+      //}
     	close(sd);
 
       getchar();
