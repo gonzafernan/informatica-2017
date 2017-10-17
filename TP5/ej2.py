@@ -1,11 +1,13 @@
 # Informática 2017 - TP5 - Ejercicio 2
 #
-# Escriba un programa que pida un número positivo de 3 a 6 cifras al usuario y luego
-# imprima los 3 números capicúa que se encuentren más cercanos. Considerar que los
-# valores capicúa más cercanos pueden ser mayores o menores al valor de referencia.
+# Escriba un programa que pida un número positivo de 3 a 6 cifras al usuario
+# y luego imprima los 3 números capicúa que se encuentren más cercanos.
+# Considerar que los valores capicúa más cercanos pueden ser mayores o menores
+# al valor de referencia.
+
 
 def capicua(numero):
-    """Recibe un número o cadena, obtiene su cadena invertida y verifica si ésta es capicua"""
+    """Recibe un int o str, obtiene su cadena invertida y ve si es capicua"""
     cadena = str(numero)
     invert = cadena[::-1]
     if cadena == invert:
@@ -13,11 +15,13 @@ def capicua(numero):
     else:
         return False
 
+
 ingreso = True
 while ingreso:
     referencia = int(input("Ingrese un número positivo de 3 a 6 cifras\n"))
     # Verificación de longitud de número ingresado
-    if len(str(referencia)) < 3 or len(str(referencia)) > 6:  # Se utiliza str para poder validar el comando len
+    if len(str(referencia)) < 3 or len(str(referencia)) > 6:  # Se utiliza str
+        # para poder validar el comando len
         print("Número no válido.\n")
     else:
         ingreso = False
@@ -45,8 +49,10 @@ capicua_final = [0] * 4  # Lista de capicúas finales ordenados
 for i in valores:  # i también puede entenderse como valores[cont]
     if cont < 3:
         capicua_final[cont] = i
-    else:  # Luego de tener 3 valores fijos en la lista capicua_final, se insertarán los valores en la lista si estos están
-           # más cerca de la referencia que los prefijados. Cabe aclarar que los únicos valores que serán impresos son los primeros 3 o 4
+    else:  # Luego de tener 3 valores fijos en la lista capicua_final, se
+            # insertarán los valores en la lista si estos están más cerca de la
+            # referencia que los prefijados. Cabe aclarar que los únicos
+            # valores que serán impresos son los primeros 3 o 4
         if abs(i - referencia) <= abs(capicua_final[0] - referencia):
             capicua_final.insert(0, i)
         elif abs(i - referencia) <= abs(capicua_final[1] - referencia):
