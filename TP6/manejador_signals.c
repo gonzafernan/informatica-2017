@@ -19,19 +19,19 @@ int rolProceso;
 //Esta funcion maneja las señales que recibe del kernel ("interrupciones de software")
 
 void manejador_signals(int signal_type){
-  char rolProceso_[10];
+  char rolprocesochar[10];
   if(rolProceso == SERVER){
-	  strcpy(rolProceso_, "Servidor");
+	  strcpy(rolprocesochar, "Servidor");
   } else{
-	  strcpy(rolProceso_, "Cliente");
+	  strcpy(rolprocesochar, "Cliente");
   }
   if (signal_type == SIGTERM){
 	  en_ejecucion = FALSE;
-	  printf("%s: Señal SIGTERM recibida. Terminando proceso.\n", rolProceso_);
+	  printf("%s: Señal SIGTERM recibida. Terminando proceso.\n", rolprocesochar);
   }
   else if (signal_type == SIGKILL){
 	  en_ejecucion = FALSE;
-	  printf("%s: Señal SIGKILL recibida. Terminando proceso.\n", rolProceso_);
+	  printf("%s: Señal SIGKILL recibida. Terminando proceso.\n", rolprocesochar);
   }
   else
 	printf("Señal desconocida. Ignorando...\n\n");
