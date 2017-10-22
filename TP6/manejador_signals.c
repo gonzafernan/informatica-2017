@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>			// Memset
-#include <signal.h>
-#include <bits/signum.h>
+
 #include "headers.h"
 
 // Definición de tipo booleano.
