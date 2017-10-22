@@ -56,14 +56,14 @@ void *thread_H2(int *en_ejecucion, int sd_aceptado){
       recv(sd_aceptado, buffer_lectura, sizeof(buffer_lectura), 0);
       //pthread_mutex_lock(&mutext);
       for (i = 0; i < sizeof(buffer_lectura); i++) {
-        file[j + i] = buffer_lectura[i];
+        file[j * 10 + i] = buffer_lectura[i];
         if (buffer_lectura[i] == EOF) {
           band = FALSE;
           *en_ejecucion = FALSE;
           break;
         }
         //printf("%c", buffer_lectura[i]);
-        printf("%c", file[i + j]);
+        //printf("%c", file[i + j]);
       }
       //pthread_mutex_unlock(&mutext);
       j = j + 1;
