@@ -22,8 +22,7 @@ int main(void){
     return 1;
   } else if (pid_B == 0) {
     // Código a ejecutar por el proceso hijo (Proceso B)
-
-    server();
+    proceso_B();
 
   } else {
     // Código a ejecutar por el proceso padre (Proceso A)
@@ -37,8 +36,7 @@ int main(void){
 
     } else {
       // Código a ejecutar por el proceso padre (Proceso A)
-
-      cliente();
+      proceso_A();
 
       getchar();
 
