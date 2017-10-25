@@ -71,7 +71,7 @@ void proceso_A(){
 
     // Enviamos el tamaño del archivo al servidor:
     send(sd, &sz, sizeof(long int), 0);
-
+		//printf("%lu\n", sz);
     // Enviamos el archivo al servidor:
     int i=0, j=0;
     boolean band = TRUE;
@@ -85,6 +85,7 @@ void proceso_A(){
       }
       // Enviamos el paquete de 10 bytes del archivo al servidor:
       send(sd, buffer_envio, sizeof(buffer_envio), 0);
+			//printf("%s", buffer_envio);
     }
 
     en_ejecucion = FALSE;
