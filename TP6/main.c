@@ -1,7 +1,3 @@
-#include <stdio.h>
-
-#include "headers.h"
-
 #include <unistd.h> // Biblioteca para multi processing
 #include <signal.h> // Bibilioteca para enviar señales a los procesos
 #include <sys/wait.h>
