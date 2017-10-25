@@ -7,8 +7,8 @@ void proceso_A();
 void proceso_B();
 
 void *thread_H1(int *en_ejecucion, int sd, void *direccionSocketCliente, void *longitudDireccionCliente);
-void *thread_H2(int *en_ejecucion, int sd_aceptado);
-void *thread_H3(void);
+void *thread_H2(void * attr);
+void *thread_H3(void *en_ejecucion);
 
 #define MAP_BOOLEAN(X) X==TRUE?"TRUE":"FALSE"
 
