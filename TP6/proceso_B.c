@@ -25,6 +25,12 @@ typedef int boolean;
 #define FALSE 0
 boolean en_ejecucion;
 
+// Struct para argumentos de los hilos:
+struct attr{
+  boolean arg1;
+  int arg2;
+};
+
 void proceso_B(){
   //Inicializacion
 	en_ejecucion = TRUE;
@@ -67,17 +73,21 @@ void proceso_B(){
 
   //Handlers de los threads a ser creados:
   pthread_t H2, H3; //H4;
-  int H2_id = 2, H3_id = 3, H4_id = 4;
+  //int H2_id = 2, H3_id = 3, H4_id = 4;
 
   //Inicializacion de los threads:
-	if(pthread_create(&H2, NULL, thread_H2(&en_ejecucion, sd_aceptado), &H2_id)){
+  struct attr attr_H2;
+  attr_H2.arg1 = en_ejecucion;
+  attr_H2.arg2 = sd_aceptado;
+
+	if(pthread_create(&H2, NULL, thread_H2, (void *)&attr_H2)){
 		printf("Error al crear el hilo 2.\n");
 		abort(); //Sale del programa y realiza un volcado del nucleo (muestra el estado completo del proceso con sus variables, instrucciones, etc.
 	}
-  // if(pthread_create(&H3, NULL, thread_H3(), &H3_id)){
-	// 	printf("Error al crear el hilo 3.\n");
-	// 	abort();
-  // }
+  if(pthread_create(&H3, NULL, thread_H3, (void *)&en_ejecucion)){
+		printf("Error al crear el hilo 3.\n");
+		abort();
+  }
   // if(pthread_create(&H4, NULL, thread_H4, &H4_id)){
 	// 	printf("Error al crear el hilo 4.\n");
 	// 	abort();
