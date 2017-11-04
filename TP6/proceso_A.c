@@ -10,24 +10,11 @@
 #include <sys/wait.h>
 #include <string.h>			// Memset
 
-// Variables globales utilizadas para la comunicación entre procesos.
-#define SERVER 0
-#define CLIENTE 1
-int rolProceso;
-
-#define PUERTO_SERVER 3333
-#define MAX_LARGO_COLA 100
-
-typedef int boolean;
-#define TRUE 1
-#define FALSE 0
-boolean en_ejecucion;
+extern boolean en_ejecucion;
 
 void proceso_A(){
-  //Inicializacion
-	en_ejecucion = TRUE;
-
   // Establecer conexión TCP con proceso B (servidor)
+
   int sd; // Descriptor del socket
 
   rolProceso = CLIENTE;
@@ -38,7 +25,7 @@ void proceso_A(){
   sd = socket(AF_INET, SOCK_STREAM, 0);
   if (sd < 0){
     perror("ERROR al crear socket (cliente)");
-    abort();
+    en_ejecucion = FALSE;
   }
 
   //Creamos la configuracion de direccion para el socket
@@ -53,43 +40,40 @@ void proceso_A(){
   do{
     sleep(1);
     conectado = connect(sd, (struct sockaddr *)&direccionSocket,sizeof(direccionSocket));
-  }while(conectado < 0);
+  }while(conectado < 0 && en_ejecucion == TRUE);
 
   char buffer_envio[10];
 
-  while (en_ejecucion){
-    // Partición de texto.
-    // Leer un archivo de disco.
-    FILE *fp;
-    fp = fopen("No se culpe a nadie.txt","r");
-    /* The C library function int fseek(FILE *stream, long int offset, int whence) (whence: posición)
-    sets the file position of the stream to the given offset. */
-    long int sz;
-    fseek(fp, 0L, SEEK_END);
-    sz = ftell(fp); // Tamaño del texto. ftell() devuelve la posición del fp en el stream.
-    fseek(fp, 0L, SEEK_SET); // Reset del fp en el stream.
+  // Partición de texto.
+  // Leer un archivo de disco.
+  FILE *fp;
+  fp = fopen("No se culpe a nadie.txt","r");
+  /* The C library function int fseek(FILE *stream, long int offset, int whence) (whence: posición)
+  sets the file position of the stream to the given offset. */
+  long int sz;
+  fseek(fp, 0L, SEEK_END);
+  sz = ftell(fp); // Tamaño del texto. ftell() devuelve la posición del fp en el stream.
+  fseek(fp, 0L, SEEK_SET); // Reset del fp en el stream.
 
-    // Enviamos el tamaño del archivo al servidor:
-    send(sd, &sz, sizeof(long int), 0);
-		//printf("%lu\n", sz);
-    // Enviamos el archivo al servidor:
-    int i=0, j=0;
-    boolean band = TRUE;
-    while (band) {
-      for (i = 0; i < sizeof(buffer_envio); i++) {
-          buffer_envio[i] = getc(fp);
-          if (buffer_envio[i] == EOF) {
-            band = FALSE;
-            break;
-          }
-      }
-      // Enviamos el paquete de 10 bytes del archivo al servidor:
-      send(sd, buffer_envio, sizeof(buffer_envio), 0);
-			//printf("%s", buffer_envio);
+  // Enviamos el tamaño del archivo al servidor:
+  send(sd, &sz, sizeof(long int), 0);
+	//printf("Cliente:\n\t Tamaño del archivo: %lu\n", sz);
+
+	sleep(1); // Mejorar sincronización servidor-cliente dando una pausa después de enviar el tamaño.
+
+  // Enviamos el archivo al servidor:
+  int i,j = 0;
+  while (j < sz) {
+    for (i = 0; i < sizeof(buffer_envio); i++) {
+				buffer_envio[i] = '\0';
+        buffer_envio[i] = getc(fp);
     }
-
-    en_ejecucion = FALSE;
-    usleep(100000);
+    // Enviamos el paquete de 10 bytes del archivo al servidor:
+    send(sd, buffer_envio, sizeof(buffer_envio), 0);
+		//printf("Cliente:\n\tPaquete %d: %s", i, buffer_envio);
+		j += 1;
   }
-  close(sd);
+	fclose(fp);
+	close(sd);
+  //printf("Ejecución del proceso A finalizada con éxito. Estado: %d\n", en_ejecucion);
 }
