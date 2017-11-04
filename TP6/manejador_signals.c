@@ -4,19 +4,9 @@
 
 #include "headers.h"
 
-// Definición de tipo booleano.
-typedef int boolean;
-#define TRUE 1
-#define FALSE 0
-boolean en_ejecucion;
-
-// Variables globales utilizadas para la comunicación entre procesos.
-#define SERVER 0
-#define CLIENTE 1
-int rolProceso;
+extern boolean en_ejecucion;
 
 //Esta funcion maneja las señales que recibe del kernel ("interrupciones de software")
-
 void manejador_signals(int signal_type){
   char rolProceso_[10];
   if(rolProceso == SERVER){
@@ -31,6 +21,10 @@ void manejador_signals(int signal_type){
   else if (signal_type == SIGKILL){
 	  en_ejecucion = FALSE;
 	  printf("%s: Señal SIGKILL recibida. Terminando proceso.\n", rolProceso_);
+  }
+  else if (signal_type == SIGHUP){
+    en_ejecucion = FALSE;
+    printf("Señal SIGHUP recibida. Finalizando el programa.\n");
   }
   else
 	printf("Señal desconocida. Ignorando...\n\n");
