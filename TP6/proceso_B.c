@@ -12,28 +12,9 @@
 #include <sys/wait.h>
 #include <string.h>			// Memset
 
-// Variables globales utilizadas para la comunicación entre procesos.
-#define SERVER 0
-#define CLIENTE 1
-int rolProceso;
-
-#define PUERTO_SERVER 3333
-#define MAX_LARGO_COLA 100
-
-typedef int boolean;
-#define TRUE 1
-#define FALSE 0
-boolean en_ejecucion;
-
-// Struct para argumentos de los hilos:
-struct attr{
-  boolean arg1;
-  int arg2;
-};
+extern boolean en_ejecucion;
 
 void proceso_B(){
-  //Inicializacion
-	en_ejecucion = TRUE;
 
   rolProceso = SERVER;
 
@@ -44,7 +25,7 @@ void proceso_B(){
   sd = socket(AF_INET, SOCK_STREAM, 0);
   if (sd < 0){
     perror("ERROR al crear socket (servidor)");
-    abort();
+    en_ejecucion = FALSE;
   }
 
   //Creamos la configuracion de direccion para el socket
@@ -57,7 +38,7 @@ void proceso_B(){
   //Enlazamos el socket con la direccion local
   if(bind(sd, (struct sockaddr *)&direccionSocket,sizeof(direccionSocket)) < 0){
     perror("ERROR al enlazar socket al puerto (servidor)");
-    abort();
+    en_ejecucion = FALSE;
   }
 
   //Configuramos el socket para que escuche conexiones, y configuramos una cantidad maxima MAX_LARGO_COLA de conexiones que podemos poner en la cola
@@ -72,43 +53,34 @@ void proceso_B(){
   sd_aceptado = accept(sd, (struct sockaddr *)&direccionSocketCliente, &longitudDireccionCliente);
 
   //Handlers de los threads a ser creados:
-  pthread_t H2, H3; //H4;
-  //int H2_id = 2, H3_id = 3, H4_id = 4;
+  pthread_t H2, H3, H4;
 
   //Inicializacion de los threads:
-  struct attr attr_H2;
-  attr_H2.arg1 = en_ejecucion;
-  attr_H2.arg2 = sd_aceptado;
 
-	if(pthread_create(&H2, NULL, thread_H2, (void *)&attr_H2)){
+	if(pthread_create(&H2, NULL, thread_H2, &sd_aceptado)){
 		printf("Error al crear el hilo 2.\n");
-		abort(); //Sale del programa y realiza un volcado del nucleo (muestra el estado completo del proceso con sus variables, instrucciones, etc.
+		en_ejecucion = FALSE; //Sale del programa y realiza un volcado del nucleo (muestra el estado completo del proceso con sus variables, instrucciones, etc.
 	}
-  if(pthread_create(&H3, NULL, thread_H3, (void *)&en_ejecucion)){
+  if(pthread_create(&H3, NULL, thread_H3, NULL)){
 		printf("Error al crear el hilo 3.\n");
-		abort();
+		en_ejecucion = FALSE;
   }
-  // if(pthread_create(&H4, NULL, thread_H4, &H4_id)){
-	// 	printf("Error al crear el hilo 4.\n");
-	// 	abort();
-	// }
+  if(pthread_create(&H4, NULL, thread_H4, NULL)){
+		printf("Error al crear el hilo 4.\n");
+		en_ejecucion = FALSE;
+	}
 
   // El hilo 1 se bloquea esperando conexiones:
-  thread_H1(&en_ejecucion, sd, (struct sockaddr *)&direccionSocketCliente, &longitudDireccionCliente);
-
-  //El thread principal queda en espera de que el usuario presione una tecla, y cuando esto ocurre cierra todos los threads y los unifica
-  getchar();
-  en_ejecucion = FALSE;
+  thread_H1(sd, (struct sockaddr *)&direccionSocketCliente, &longitudDireccionCliente);
 
   //Reunión de los 4 threads.
 	//Esta llamada bloquea la ejecución del thread principal hasta que los otros 3 terminan.
-  if(pthread_join(H2, NULL) /*|| pthread_join(H3, NULL)*/ /*|| pthread_join(H4, NULL)*/) {
+  if(pthread_join(H2, NULL) || pthread_join(H3, NULL) || pthread_join(H4, NULL)) {
 		printf("Error reuniendo los threads.");
-		abort();
+		en_ejecucion = FALSE;
 	}
-	else{
-	  printf("\nEjecucion finalizada con exito.\n");
-  }
   close(sd_aceptado);
   close(sd);
+  //printf("Ejecución del proceso B finalizada con éxito. Estado: %d\n", en_ejecucion);
+  exit(0);
 }
