@@ -1,65 +1,42 @@
-#include <stdio.h>
-#include "headers.h"
-
-int matriz[10][10] = {
-                      {1,0,0,0,0,1,1,1,1,1},
-                      {1,1,0,0,0,1,0,0,0,0},
-                      {0,1,0,0,0,1,0,0,0,0},
-                      {0,1,0,0,0,1,0,0,0,0},
-                      {0,1,0,0,0,1,0,0,0,0},
-                      {0,1,0,0,0,1,1,0,0,0},
-                      {0,1,0,0,0,0,1,1,1,1},
-                      {0,1,0,0,0,0,0,0,0,1},
-                      {0,1,0,0,0,0,0,0,0,1},
-                      {0,1,1,1,1,1,1,1,1,0}
-                                            };
-struct posicion{
-  int x;
-  int y;
-};
-
-struct NODO{
-  int valor;
-  struct NODO *hijos[8];
-};
-
-
-
+#include<stdio.h>
 
 int main(){
-  int i, j;
-  //Creación de la matriz
-
-  for (i = 0; i<10; i++){
-    for (j = 0; j<10; j++){
-      printf("%d ", matriz[i][j]);
+//la matriz laberinto se ubica en un archivo de texto de donde la leeremos
+ FILE *matriz;
+matriz= fopen("matriz.txt","r");
+if (matriz==NULL){
+    printf("\nError de apertura del archivo. \n\n");
+}
+int laberinto[10][10];
+int buffer_int,i,j;
+char get_buffer;
+printf("el laberinto a resolver es :\n\n");
+//lectura del archivo de texto y escritura sobre una matriz con enteros
+for (i=0;i<10;i++){
+  for (j=0;j<10;j++){
+    get_buffer=fgetc(matriz);
+    buffer_int = (int)(get_buffer-48);//transformacion de caracter ansii a entero
+    if (buffer_int == -38){
+      get_buffer=fgetc(matriz);
+      buffer_int = (int)(get_buffer-48);
     }
-    printf("\n");
+    laberinto[i][j]=buffer_int;
+    printf(" %d ",laberinto[i][j]);
   }
-
-  struct posicion A, B;
-
-  printf("Ingrese la posicion x,y del punto inicial\n");
-  scanf("%d", &(A.x));
-  scanf("%d", &(A.y));
-  if (A.x > 9 || A.x < 0 || A.y > 9 || A.y < 0){
-    printf("Posicion no valida\n");
-    return 0;
-  }
-
-  printf("Ingrese la posicion x,y del punto final\n");
-  scanf("%d", &(B.x));
-  scanf("%d", &(B.y));
-  if (B.x > 9 || B.x < 0 || B.y > 9 || B.y < 0){
-    printf("Posicion no valida\n");
-    return 0;
-  }
-
-  printf("%d %d %d %d ", A.x, A.y, B.x, B.y);
-
-
-
-
-
-  return 0;
+  printf("\n");
+}
+fclose(matriz);
+int Ax,Ay,Bx,By;
+printf("\n ingrese en modo de coordernada (x,y) el punto inicial A (tomar en cuenta que el (0,0) es el extremo izquierdo de abajo):\n");
+scanf(" (%d,%d)",&Ax,&Ay);
+printf("ingrese en modo de coordernada (x,y) el punto final B :\n");
+scanf(" (%d,%d)",&Bx,&By);
+laberinto[10-Ay][Ax]=2;
+laberinto[10-By][Bx]=3;
+/*for (i=0;i<10;i++){ //algoritmo para mostrar la matriz
+  for (j=0;j<10;j++){
+      printf(" %d ",laberinto[i][j]);}
+      printf("\n");}
+*/
+return 0;
 }
