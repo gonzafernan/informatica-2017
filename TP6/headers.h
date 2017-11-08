@@ -6,7 +6,7 @@ void manejador_signals(int signal_type);
 void proceso_A();
 void proceso_B();
 
-void *thread_H1(int sd, void *direccionSocketCliente, void *longitudDireccionCliente);
+void *thread_H1(void *apuntador);
 void *thread_H2(void * sd);
 void *thread_H3();
 void *thread_H4();
@@ -25,5 +25,11 @@ int rolProceso;
 
 #define PUERTO_SERVER 3333
 #define MAX_LARGO_COLA 100
+
+struct attr1 {
+  int socket;
+  void * direccionS;
+  void * longitudS;
+};
 
 #endif
