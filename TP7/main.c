@@ -16,26 +16,24 @@ struct struct_nodo{
     // struct struct_nodo * derabajo;
 };
 typedef struct struct_nodo NODO;
-NODO * apuntador[10][10];
-int buffer [2][500];
 
-//NODO *lista_enlazada(int ** matriz) { // Debe o devolver el apuntador(10,10) (int??) o recibirlo como dato
+NODO* apuntador[10];
+int buffer[2][500];
 
-
-//     return apuntador; //REVISAR!!!
-// }
 
 void recorre(NODO * actual, int B[2]){ // el primer actual es el NODO apuntador[i][j] con i y j siendo la posición de A
     cont++;
     buffer[0][cont] = actual -> posicion[0];
     buffer[1][cont] = actual -> posicion[1];
     if (actual -> posicion == B){
-        //TERMINAR PROCESO, CAMINO ENCONTRADO
+        printf("TERMINAR PROCESO, CAMINO ENCONTRADO");
         for (i=cont+1; i<100; i++){ // Limpia el resto del buffer que no corresponde al camino
             buffer[0][i] = 0;
             buffer[1][i] = 0;
         }
-        //return buffer;
+        for (i=0;i<50;i++){
+            printf("(%d,%d)", buffer[0][i], buffer[1][i]);
+        }
     }
     if (actual -> izquierda -> valor == 0){
         actual -> valor = 7;
@@ -64,6 +62,10 @@ void recorre(NODO * actual, int B[2]){ // el primer actual es el NODO apuntador[
 }
 
 int main(){
+    for (i=0; i<10; i++){
+        apuntador[i] = calloc(10, sizeof(NODO));
+    }
+
     int matriz[10][10] = {
                             {1, 0, 0, 0, 0, 1, 1, 1, 1, 1},
                             {1, 1, 0, 0, 0, 1, 0, 0, 0, 0},
@@ -76,17 +78,7 @@ int main(){
                             {0, 1, 0, 0, 0, 0, 0, 0, 0, 1},
                             {0, 1, 1, 1, 1, 1, 1, 1, 1, 0}
                                                             };
-   printf("exito??");
-    // int ** ap_matriz;
-    // ap_matriz=calloc(10,sizeof(int*));
-    // for (i=0;i<10;i++){
-    //   ap_matriz[i]=calloc(10,sizeof(int));
-    // }
-    // for (i=0;i<10;i++){
-    //   for (j=0;j<10;j++){
-    //     ap_matriz[i][j] = matriz[i][j];
-    //   }
-    // }
+
 
     NODO muro;
     muro.valor = 1;
@@ -100,36 +92,31 @@ int main(){
     // muro -> derabajo = NULL;
 
     // ASIGNACIÓN DE NODOS ENLAZADOS
-    printf("exito2??\n");
+
     for (i=0; i<10; i++){
-        printf("%d", i);
-
         for (j=0; j<10; j++){
-            printf("%d%d", i, j);
-
-            apuntador[i][j] -> posicion[0] = i;
-            printf("%d", i);
-            apuntador[i][j] -> posicion[1] = j;
-            apuntador[i][j] -> valor = matriz[i][j];
+            apuntador[i][j].valor = matriz[i][j];
+            apuntador[i][j].posicion[0] = i;
+            apuntador[i][j].posicion[1] = j;
             if (i==0){
-                apuntador[i][j] -> izquierda = &muro;
+                apuntador[i][j].izquierda = &muro;
             } else {
-                apuntador[i][j] -> izquierda = apuntador[i-1][j];
+                apuntador[i][j].izquierda = &apuntador[i-1][j];
             }
             if (i==9){
-                apuntador[i][j] -> derecha = &muro;
+                apuntador[i][j].derecha = &muro;
             } else {
-                apuntador[i][j] -> derecha = apuntador[i+1][j];
+                apuntador[i][j].derecha = &apuntador[i+1][j];
             }
             if (j==0){
-                apuntador[i][j] -> arriba = &muro;
+                apuntador[i][j].arriba = &muro;
             } else {
-                apuntador[i][j] -> arriba = apuntador[i][j-1];
+                apuntador[i][j].arriba = &apuntador[i][j-1];
             }
             if (j==9){
-                apuntador[i][j] -> abajo = &muro;
+                apuntador[i][j].abajo = &muro;
             } else {
-                apuntador[i][j] -> abajo = apuntador[i][j+1];
+                apuntador[i][j].abajo = &apuntador[i][j+1];
             }
         }
     }
@@ -142,18 +129,24 @@ int main(){
     printf("ingrese en modo de coordernada (x,y) el punto final B :\n");
     scanf(" (%d,%d)",&B[0],&B[1]);
 
-    apuntador[A[0]][A[1]] -> valor = 666;
+    apuntador[A[0]][A[1]].valor = 666;
 
     // Reservo en memoria un buffer de ceros que irá guardando el camino recorrido
 
-    recorre(apuntador[A[0]][A[1]], B); // el primer actual es el NODO apuntador[i][j] con i y j siendo la posición de A
+    recorre(&apuntador[A[0]][A[1]], B); // el primer actual es el NODO apuntador[i][j] con i y j siendo la posición de A
     for (i=0;i<10;i++){ //algoritmo para mostrar la matriz
         for (j=0;j<10;j++){
-            printf(" %d ",apuntador[i][j] -> valor);}
-            printf("\n");}
-    for (i=0;i<2;i++){ //algoritmo para mostrar la matriz
-        for (j=0;j<100;j++){
-            printf(" %d ", buffer[i][j]);}
-            printf("\n");}
+            printf(" %d ",apuntador[i][j].valor);
+            }
+            printf("\n");
+        }
+    for (i=0;i<50;i++){
+        printf("(%d,%d)", buffer[0][i], buffer[1][i]);
+    }    
+
+    // for (i=0;i<2;i++){ //algoritmo para mostrar la matriz
+    //     for (j=0;j<100;j++){
+    //         printf("%d", buffer[i][j]);}
+    //         printf("\n");}
 return 0;
 }
