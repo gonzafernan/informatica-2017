@@ -1,0 +1,73 @@
+ 
+int connect(int socket, const struct sockaddr *address,
+socklen_t address_len);
+            The connect() system call connects the socket referred to by
+       the file descriptor sockfd to the address specified by addr.
+       The addrlen argument specifies the size of addr.
+            socket: Specifies the file descriptor associated with the 
+       socket.
+            address: Points to a sockaddr structure containing the peer 
+       address. The length and format of the address depend on the
+       address family of the socket.
+            address_len Specifies the length of the sockaddr structure
+       pointed to by the address argument.
+       
+ssize_t send(int socket, const void *buffer, size_t length, int flags);
+            The send() call may be used only when the socket is in
+       connected state (so that the intended recipient is known).
+            socket: Specifies the socket file descriptor.
+            buffer: Points to the buffer containing the message to send.
+            length: Specifies the length of the message in bytes.
+            flags: Specifies the type of message transmission.
+                   
+ssize_t recv(int socket, void *buffer, size_t length, int flags);
+            The recv() call is normally used only on a connected socket
+            socket: Specifies the socket file descriptor.
+            buffer: Points to a buffer where the message should be 
+       stored.
+            length: Specifies the length in bytes of the buffer pointed
+       to by the buffer argument
+            This routine returns the length of the message on successful
+        completion. If a message is too long to fit in the supplied buffer,
+        excess bytes may be discarded depending on the type of socket the
+        
+int socket(int domain, int type, int protocol);
+            socket() creates an endpoint for communication and returns a
+       file descriptor that refers to that endpoint.  The file descriptor
+       returned by a successful call will be the lowest-numbered file
+       descriptor not currently open for the process.
+            The domain argument specifies a communication domain; this
+       selects the protocol family which will be used for communication.
+       These families are defined in <sys/socket.h>.
+
+int listen(int sockfd, int backlog);
+             listen() marks the socket referred to by sockfd as a passive
+       socket, that is, as a socket that will be used to accept incoming
+       connection requests using accept(2).
+            The sockfd argument is a file descriptor that refers to a
+       socket of type SOCK_STREAM or SOCK_SEQPACKET.
+            The backlog argument defines the maximum length to which the
+       queue of pending connections for sockfd may grow.  If a connection
+       request arrives when the queue is full, the client may receive an
+       error with an indication of ECONNREFUSED or, if the underlying
+       protocol supports retransmission, the request may be ignored so that
+       a later reattempt at connection succeeds.
+       
+int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);
+            The  accept() system call extracts the first connection 
+       request on the queue of pending connections for the listening socket,
+       sockfd, creates a new  connected  socket, and  returns a new file 
+       descriptor referring to that socket.  The newly created socket is not
+       in the listening state.  The original socket sockfd is unaffected 
+       by this call.
+            The argument sockfd is a socket that has been created with 
+       socket(2), bound to a local address with bind(2), and  is  listening 
+       for connections after a listen(2).
+            The  argument addr is a pointer to a sockaddr structure.  This 
+        structure is filled in with the address of the peer socket, as known 
+        to the communications layer.
+            The addrlen argument is a value-result argument: the caller must
+       initialize it to contain  the  size  (in  bytes)  of  the structure 
+       pointed to by addr; on return it will contain the actual size of the
+       peer address.
+
