@@ -4,6 +4,8 @@
 
 #include "headers.h"
 
+#include <signal.h> // Bibilioteca para enviar señales a los procesos
+
 extern boolean en_ejecucion;
 
 //Esta funcion maneja las señales que recibe del kernel ("interrupciones de software")
