@@ -39,8 +39,8 @@ int main(){
   // scanf(" (%d,%d)",&Ax,&Ay);
   // printf("ingrese en modo de coordernada (x,y) el punto final B :\n");
   // scanf(" (%d,%d)",&Bx,&By);
-  // laberinto[10-Ay][Ax]=2;
-  // laberinto[10-By][Bx]=3;
+  // laberinto[9-Ay][Ax]=2;
+  // laberinto[9-By][Bx]=3;
   /*for (i=0;i<10;i++){ //algoritmo para mostrar la matriz
     for (j=0;j<10;j++){
         printf(" %d ",laberinto[i][j]);}
