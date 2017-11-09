@@ -8,12 +8,12 @@ int recorre(struct posicion *A, struct posicion *B){
   int i, j, k;
   int salida;
 
-  for (i = 0; i<10; i++){
-    for (j = 0; j<10; j++){
-      printf("%d ", matriz[i][j]);
-    }
-    printf("\n");
-  }
+  // for (i = 0; i<10; i++){
+  //   for (j = 0; j<10; j++){
+  //     printf("%d ", matriz[i][j]);
+  //   }
+  //   printf("\n");
+  // }
 
   if (A -> x == B -> x && A -> y == B -> y) {
     printf("Punto encontrado\n");
@@ -28,7 +28,7 @@ int recorre(struct posicion *A, struct posicion *B){
           A -> hijos[k] = malloc(sizeof(struct posicion));
           A -> hijos[k] -> x = A -> x + i;
           A -> hijos[k] -> y = A -> y + j;
-          printf("Hijo %d:(%d,%d)\n", k, A -> hijos[k] -> x, A -> hijos[k] -> y);
+          // printf("Hijo %d:(%d,%d)\n", k, A -> hijos[k] -> x, A -> hijos[k] -> y);
           k += 1;
           // printf("Hola\n");
         }
@@ -46,17 +46,16 @@ int recorre(struct posicion *A, struct posicion *B){
       printf("(%d,%d)\n", A -> hijos[i] -> x, A -> hijos[i] -> y);
       matriz[A -> hijos[i] -> x][A -> hijos[i] -> y] = 2;
       C = A -> hijos[i];
-
-      salida = recorre(C,B);
+      salida = recorre(C, B);
       if (salida == 1){
+        for(j = 0; j < k; j++){
+          free(A -> hijos[j]);
+        }
         return 1;
       }
     } else if (estado == 1 || estado == 2) {
-      return 0;
+      continue;
     }
   }
-
-  //Impresion final de la matriz
-
   return 0;
 }
