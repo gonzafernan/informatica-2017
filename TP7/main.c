@@ -25,15 +25,24 @@ void recorre(NODO * actual, int B[2]){ // el primer actual es el NODO apuntador[
     cont++;
     buffer[0][cont] = actual -> posicion[0];
     buffer[1][cont] = actual -> posicion[1];
-    if (actual -> posicion == B){
+    if (actual -> posicion[0] == B[0] && actual -> posicion[1] == B[1]){
+        actual -> valor = 777;
         printf("TERMINAR PROCESO, CAMINO ENCONTRADO");
         for (i=cont+1; i<100; i++){ // Limpia el resto del buffer que no corresponde al camino
             buffer[0][i] = 0;
             buffer[1][i] = 0;
         }
-        for (i=0;i<50;i++){
+        for (i=0;i<cont+1;i++){
             printf("(%d,%d)", buffer[0][i], buffer[1][i]);
         }
+        printf("\n");
+        for (i=0;i<10;i++){ //algoritmo para mostrar la matriz
+            for (j=0;j<10;j++){
+                printf(" %d ",apuntador[i][j].valor);
+                }
+                printf("\n");
+            }
+        abort();
     }
     if (actual -> izquierda -> valor == 0){
         actual -> valor = 7;
@@ -120,6 +129,12 @@ int main(){
             }
         }
     }
+    for (i=0;i<10;i++){ //algoritmo para mostrar la matriz
+          for (j=0;j<10;j++){
+              printf(" %d ",apuntador[i][j].valor);
+              }
+              printf("\n");
+          }
 
     int A[2];
     int B[2];
@@ -134,19 +149,21 @@ int main(){
     // Reservo en memoria un buffer de ceros que irá guardando el camino recorrido
 
     recorre(&apuntador[A[0]][A[1]], B); // el primer actual es el NODO apuntador[i][j] con i y j siendo la posición de A
-    for (i=0;i<10;i++){ //algoritmo para mostrar la matriz
+  /*for (i=0;i<10;i++){ //algoritmo para mostrar la matriz
         for (j=0;j<10;j++){
             printf(" %d ",apuntador[i][j].valor);
             }
             printf("\n");
-        }
+        }*/
     for (i=0;i<50;i++){
         printf("(%d,%d)", buffer[0][i], buffer[1][i]);
-    }    
+    }
 
+printf("\ncamino imposible\n");
     // for (i=0;i<2;i++){ //algoritmo para mostrar la matriz
     //     for (j=0;j<100;j++){
     //         printf("%d", buffer[i][j]);}
     //         printf("\n");}
 return 0;
 }
+
