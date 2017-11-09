@@ -10,10 +10,10 @@ struct struct_nodo{
     struct struct_nodo * derecha;
     struct struct_nodo * arriba;
     struct struct_nodo * abajo;
-    // struct struct_nodo * izqarriba;
-    // struct struct_nodo * izqabajo;
-    // struct struct_nodo * derarriba;
-    // struct struct_nodo * derabajo;
+    struct struct_nodo * izqarriba;
+    struct struct_nodo * izqabajo;
+    struct struct_nodo * derarriba;
+    struct struct_nodo * derabajo;
 };
 typedef struct struct_nodo NODO;
 
@@ -21,22 +21,23 @@ NODO* apuntador[10];
 int buffer[2][500];
 
 
-void recorre(NODO * actual, int B[2]){ // el primer actual es el NODO apuntador[i][j] con i y j siendo la posición de A
+void recorre(NODO * actual, int B[2], NODO * inicial){  // el primer actual es el NODO apuntador[i][j] con i y j siendo la posición de A
     cont++;
     buffer[0][cont] = actual -> posicion[0];
     buffer[1][cont] = actual -> posicion[1];
     if (actual -> posicion[0] == B[0] && actual -> posicion[1] == B[1]){
-        actual -> valor = 777;
+        actual -> valor = 3;  // B
+        inicial -> valor = 8;  // A
         printf("TERMINAR PROCESO, CAMINO ENCONTRADO");
-        for (i=cont+1; i<100; i++){ // Limpia el resto del buffer que no corresponde al camino
+        for (i=cont+1; i<100; i++){  // Limpia el resto del buffer que no corresponde al camino
             buffer[0][i] = 0;
             buffer[1][i] = 0;
         }
-        for (i=0;i<cont+1;i++){
+        for (i=0;i<cont+1;i++){  // algoritmo para mostrar el buffer de camino
             printf("(%d,%d)", buffer[0][i], buffer[1][i]);
         }
         printf("\n");
-        for (i=0;i<10;i++){ //algoritmo para mostrar la matriz
+        for (i=0;i<10;i++){  // algoritmo para mostrar la matriz
             for (j=0;j<10;j++){
                 printf(" %d ",apuntador[i][j].valor);
                 }
@@ -44,27 +45,51 @@ void recorre(NODO * actual, int B[2]){ // el primer actual es el NODO apuntador[
             }
         abort();
     }
+    if (actual -> derarriba -> valor == 0){
+        actual -> valor = 7;  // 7: casilla recorrida
+        recorre(actual -> derarriba, B, inicial);
+        actual -> valor = 0;  // reintegra la casilla a valor no recorrido
+        cont--;  // El contador disminuirá de manera que la siguiente instrucción de if utilice el mismo valor de contador
+    }
+    if (actual -> derabajo -> valor == 0){
+        actual -> valor = 7;
+        recorre(actual -> derabajo, B, inicial);
+        actual -> valor = 0;
+        cont--;
+    }
+    if (actual -> izqabajo -> valor == 0){
+        actual -> valor = 7;
+        recorre(actual -> izqabajo, B, inicial);
+        actual -> valor = 0;
+        cont--;
+    }
+    if (actual -> izqarriba -> valor == 0){
+        actual -> valor = 7;
+        recorre(actual -> izqarriba, B, inicial);
+        actual -> valor = 0;
+        cont--;
+    }
     if (actual -> izquierda -> valor == 0){
         actual -> valor = 7;
-        recorre(actual -> izquierda, B);
+        recorre(actual -> izquierda, B, inicial);
         actual -> valor = 0;
-        cont--; // El contador disminuirá de manera que la siguiente instrucción de if utilice el mismo valor de contador
+        cont--;
     }
     if (actual -> derecha -> valor == 0){
         actual -> valor = 7;
-        recorre(actual -> derecha, B);
+        recorre(actual -> derecha, B, inicial);
         actual -> valor = 0;
         cont--;
     }
     if (actual -> abajo -> valor == 0){
         actual -> valor = 7;
-        recorre(actual -> abajo, B);
+        recorre(actual -> abajo, B, inicial);
         actual -> valor = 0;
         cont--;
     }
     if (actual -> arriba -> valor == 0){
         actual -> valor = 7;
-        recorre(actual -> arriba, B);
+        recorre(actual -> arriba, B, inicial);
         actual -> valor = 0;
         cont--;
     }
@@ -91,14 +116,14 @@ int main(){
 
     NODO muro;
     muro.valor = 1;
-    muro.izquierda = NULL;
+    muro.izquierda = NULL;  // OPCIONAL, NUNCA UTILIZADO
     muro.derecha = NULL;
     muro.arriba = NULL;
     muro.abajo = NULL;
-    // muro -> izqarriba = NULL;
-    // muro -> izqabajo = NULL;
-    // muro -> derarriba = NULL;
-    // muro -> derabajo = NULL;
+    muro.izqarriba = NULL;
+    muro.izqabajo = NULL;
+    muro.derarriba = NULL;
+    muro.derabajo = NULL;
 
     // ASIGNACIÓN DE NODOS ENLAZADOS
 
@@ -109,23 +134,55 @@ int main(){
             apuntador[i][j].posicion[1] = j;
             if (i==0){
                 apuntador[i][j].izquierda = &muro;
+                apuntador[i][j].izqarriba = &muro;
+                apuntador[i][j].izqabajo = &muro;
             } else {
                 apuntador[i][j].izquierda = &apuntador[i-1][j];
+                if (j!=0){
+                    apuntador[i][j].izqarriba = &apuntador[i-1][j-1];
+                }
+                if (j!=9){
+                    apuntador[i][j].izqabajo = &apuntador[i-1][j+1];
+                }
             }
             if (i==9){
                 apuntador[i][j].derecha = &muro;
+                apuntador[i][j].derarriba = &muro;
+                apuntador[i][j].derabajo = &muro;
             } else {
                 apuntador[i][j].derecha = &apuntador[i+1][j];
+                if (j!=0){
+                    apuntador[i][j].derarriba = &apuntador[i+1][j-1];
+                }
+                if (j!=9){
+                    apuntador[i][j].derabajo = &apuntador[i+1][j+1];
+                }
             }
             if (j==0){
                 apuntador[i][j].arriba = &muro;
+                apuntador[i][j].izqarriba = &muro;
+                apuntador[i][j].derarriba = &muro;
             } else {
                 apuntador[i][j].arriba = &apuntador[i][j-1];
+                if (i!=0){
+                    apuntador[i][j].izqarriba = &apuntador[i-1][j-1];
+                }
+                if (i!=9){
+                    apuntador[i][j].derarriba = &apuntador[i+1][j-1];
+                }
             }
             if (j==9){
                 apuntador[i][j].abajo = &muro;
+                apuntador[i][j].izqabajo = &muro;
+                apuntador[i][j].derabajo = &muro;
             } else {
                 apuntador[i][j].abajo = &apuntador[i][j+1];
+                if (i!=0){
+                    apuntador[i][j].izqabajo = &apuntador[i-1][j+1];
+                }
+                if (i!=9){
+                    apuntador[i][j].derabajo = &apuntador[i+1][j+1];
+                }
             }
         }
     }
@@ -140,15 +197,17 @@ int main(){
     int B[2];
     // Recibe posición completando A y B
     printf("\n Ingrese en modo de coordernada (x,y) el punto inicial A (tomar en cuenta que el (0,0) es el extremo izquierdo superior):\n");
-    scanf(" (%d,%d)",&A[0],&A[1]);
+    scanf(" %d", &A[0]);
+    scanf(" %d", &A[1]);
     printf("ingrese en modo de coordernada (x,y) el punto final B :\n");
-    scanf(" (%d,%d)",&B[0],&B[1]);
+    scanf(" %d", &B[0]);
+    scanf(" %d", &B[1]);
 
-    apuntador[A[0]][A[1]].valor = 666;
+    apuntador[A[0]][A[1]].valor = 8;
 
     // Reservo en memoria un buffer de ceros que irá guardando el camino recorrido
 
-    recorre(&apuntador[A[0]][A[1]], B); // el primer actual es el NODO apuntador[i][j] con i y j siendo la posición de A
+    recorre(&apuntador[A[0]][A[1]], B, &apuntador[A[0]][A[1]]); // el primer actual es el NODO apuntador[i][j] con i y j siendo la posición de A
   /*for (i=0;i<10;i++){ //algoritmo para mostrar la matriz
         for (j=0;j<10;j++){
             printf(" %d ",apuntador[i][j].valor);
@@ -166,4 +225,3 @@ printf("\ncamino imposible\n");
     //         printf("\n");}
 return 0;
 }
-
