@@ -27,17 +27,21 @@ int main(){
 
   struct posicion A, B;
 
-  printf("Ingrese la posicion x,y del punto inicial de la forma (x,y):\n");
+  label2:
+  printf("Ingrese la posicion x,y del punto inicial de la forma x,y:\n");
   scanf("%d,%d", &(A.x), &(A.y));
   if (!((A.x)<10 && (A.x)>=0 && (A.y)<10 && (A.y)>=0)){
     printf("Posicion no valida\n");
+    goto label2;
     return 0;
   }
 
-  printf("Ingrese la posicion x,y del punto final de la forma (x,y):\n");
+  label:
+  printf("Ingrese la posicion x,y del punto final de la forma x,y:\n");
   scanf("\n%d,%d", &(B.x), &(B.y));
-  if (B.x > 9 || B.x < 0 || B.y > 9 || B.y < 0){
+  if (B.x > 9 || B.x < 0 || B.y > 9 || B.y < 0  || matriz[B.x][B.y] == 1 ){
     printf("Posicion no valida\n");
+    goto label;
     return 0;
   }
 
