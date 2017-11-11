@@ -8,7 +8,7 @@ Integrantes:
 - FERNÁNDEZ, Gonzalo - 11544
 - GIUNTA, Sebastián - 11302
 - PERALTA, Andrés - 11510
-- QUIROGA, Gabriel
+- QUIROGA, Gabriel - 11476
 
 Para compilar usando la consola hay que ejecutar gcc y agregar -lm al comando // -lm se usa para linkear la librería math.h, para que el compilador sepa dónde está 
 
