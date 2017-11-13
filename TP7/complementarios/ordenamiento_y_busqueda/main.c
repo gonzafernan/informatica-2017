@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "headers.h"
+#include "sort_and_search.h"
 
 int main(){
   srand(time(NULL));
