@@ -37,8 +37,6 @@ int recorre(struct posicion *A, struct posicion *B){
     }
   }
 
-//WARNING!!!!
-
   for (i = 0; i < k; i++) {
     int estado;
     estado = matriz[A -> hijos[i] -> x][A -> hijos[i] -> y];
